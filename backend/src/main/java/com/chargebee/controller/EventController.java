@@ -32,8 +32,8 @@ public class EventController {
 	private UserService usrservice;
 	
 	@PostMapping(value = "/events")
-	public Event createEvent(@ModelAttribute("addEvent") Event newevent){
-		return eventService.create(newevent);
+	public Event createEvent(@RequestBody Event event){
+		return eventService.create(event);
 	}
 	
 	@GetMapping(value = "/events/{username}")
