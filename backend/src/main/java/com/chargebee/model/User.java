@@ -2,6 +2,8 @@ package com.chargebee.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Entity
 public class User {
@@ -12,7 +14,10 @@ public class User {
 	private String password;
 
 	private String role;
-	
+
+	@OneToMany
+	private List<Event> evntList;
+
 	public String getUsername() {
 		return username;
 	}
@@ -36,6 +41,13 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	
-	
+
+
+	public List<Event> getEvntList() {
+		return evntList;
+	}
+
+	public void setEvntList(List<Event> evntList) {
+		this.evntList = evntList;
+	}
 }

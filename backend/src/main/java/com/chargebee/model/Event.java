@@ -15,6 +15,8 @@ public class Event {
 	private String username;
 	
 	private String eventName;
+
+	private boolean isCancelled;
 	
 	private String eventDescription;
 	
@@ -109,7 +111,14 @@ public class Event {
 		this.tags = evnt.tags;
 		this.capacity = evnt.capacity;
 		
-	}	
-	
-	
+	}
+
+
+	public boolean isCancelled() {
+		return isCancelled;
+	}
+
+	public void setCancelled(boolean cancelled) {
+		isCancelled = cancelled;
+	}
 }
