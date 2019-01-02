@@ -18,10 +18,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.chargebee.model.Event;
 import com.chargebee.service.EventService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class EventController {
-	
+
 	@Autowired
 	private EventService eventService;
 
