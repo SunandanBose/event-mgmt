@@ -27,12 +27,12 @@ public class EventController {
 		return "Hi";
 	}
 	
-	@PostMapping(value = "/createEvents")
+	@PostMapping(value = "/Events")
 	public Event createEvent(@ModelAttribute("addEvent") Event newevent){
 		return evntserv.create(newevent);
 	}
 	
-	@GetMapping(value = "/getMyEvents/{username}")
+	@GetMapping(value = "/Events/{username}")
 	public List<Event> fetchMyEvents(@PathVariable(value = "username") String username){
 		System.out.println(username);
 		return evntserv.fetchMyCreatedEvents(username);
@@ -43,13 +43,13 @@ public class EventController {
 		return evntserv.fetchOtherCreatedEvents(username);
 	}
 	
-	@DeleteMapping(value = "/DeleteEvent/{id}")
+	@DeleteMapping(value = "/Events/{id}")
 	public void deleteEvent(@PathVariable(value = "id") Integer id){
 		System.out.println(id);
 		evntserv.deleteEvent(id);
 	}
 	
-	@PutMapping(value = "/UpdateEvent/{id}")
+	@PutMapping(value = "/Events/{id}")
 	public Event updateEvent(@PathVariable(value = "id") Integer id,@RequestBody Event evnt){
 		System.out.println(id);
 		return evntserv.updateEvent(id,evnt);

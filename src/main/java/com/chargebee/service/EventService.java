@@ -46,6 +46,7 @@ public class EventService {
 	public Event updateEvent(Integer id, Event evnt) {
 		Event updatedEvent = eventrep.findById(id).get();
 		updatedEvent.merge(evnt);
+		eventrep.save(updatedEvent);
 		return updatedEvent;
 	}
 	
