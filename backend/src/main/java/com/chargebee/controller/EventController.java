@@ -19,40 +19,34 @@ import com.chargebee.service.EventService;
 public class EventController {
 	
 	@Autowired
-	private EventService evntserv;
+	private EventService eventService;
 	
-	
-	@PostMapping(value = "/createEvents1")
-	public String createEvent1(){
-		return "Hi";
-	}
-	
-	@PostMapping(value = "/Events")
+	@PostMapping(value = "/events")
 	public Event createEvent(@ModelAttribute("addEvent") Event newevent){
-		return evntserv.create(newevent);
+		return eventService.create(newevent);
 	}
 	
-	@GetMapping(value = "/Events/{username}")
+	@GetMapping(value = "/events/{username}")
 	public List<Event> fetchMyEvents(@PathVariable(value = "username") String username){
 		System.out.println(username);
-		return evntserv.fetchMyCreatedEvents(username);
+		return eventService.fetchMyCreatedEvents(username);
 	}
 	
 	@GetMapping(value = "/getOtherEvents/{username}")
 	public List<Event> fetchOtherEvents(@PathVariable(value = "username") String username){
-		return evntserv.fetchOtherCreatedEvents(username);
+		return eventService.fetchOtherCreatedEvents(username);
 	}
 	
-	@DeleteMapping(value = "/Events/{id}")
+	@DeleteMapping(value = "/events/{id}")
 	public void deleteEvent(@PathVariable(value = "id") Integer id){
 		System.out.println(id);
-		evntserv.deleteEvent(id);
+		eventService.deleteEvent(id);
 	}
 	
-	@PutMapping(value = "/Events/{id}")
+	@PutMapping(value = "/events/{id}")
 	public Event updateEvent(@PathVariable(value = "id") Integer id,@RequestBody Event evnt){
 		System.out.println(id);
-		return evntserv.updateEvent(id,evnt);
+		return eventService.updateEvent(id,evnt);
 	}
 
 }
