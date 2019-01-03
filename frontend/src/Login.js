@@ -27,13 +27,14 @@ export default class Login extends React.Component {
 	render() {
 		return (
 			<div>
-				Login as :  
+				You are logged in as:
 				<select>
-					<option key="0" label="--Select a user--" value=""></option>
+					<option key="0" label="--Select a user--" value=""/>
 					{this.state.users.map(user => {
 						return <option key={user.id}>{user.userName}</option>
 					})}
 				</select>
+				 Click on the dropdown to switch user.
 			</div>
 		)
 	}

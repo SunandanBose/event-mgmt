@@ -12,8 +12,6 @@ import Contact from "./Contact";
 import Registration from "./Registration";
 
 class Main extends Component {
-
-	
   render() {
     return (
 			<HashRouter >
@@ -23,12 +21,12 @@ class Main extends Component {
 					<div style={{'width': '20%' ,'float':'left'}}>
 						<ul className="header" style = {{'float' : 'center'}}>
 							<li><NavLink exact to="/">Home</NavLink></li>
-							<li><NavLink to="/	">Notification</NavLink></li>
+							<li><NavLink to="/stuff">Notification</NavLink></li>
 							<li><NavLink to="/contact">Contact</NavLink></li>
 							<li><NavLink to="/event">Registration</NavLink></li>
 						</ul>
 					</div>
-					<div className="content" style={{'width': '80%' ,'float':'right'}}>
+					<div className="menu" >
 						<Switch>
 							<Route exact path="/" component={Home}/>
 							<Route path="/stuff" component={Stuff}/>
