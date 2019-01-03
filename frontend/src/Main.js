@@ -14,22 +14,26 @@ import Registration from "./Registration";
 class Main extends Component {
   render() {
     return (
-			<HashRouter>
-			<div>
-				<h1>Simple SPA</h1>
-				<ul className="header">
-					<li><NavLink exact to="/">Home</NavLink></li>
-					<li><NavLink to="/stuff">Stuff</NavLink></li>
-					<li><NavLink to="/contact">Contact</NavLink></li>
-					<li><NavLink to="/event">Registration</NavLink></li>
-				</ul>
-				<div className="content">
-					<Switch>
-						<Route exact path="/" component={Home}/>
-						<Route path="/stuff" component={Stuff}/>
-						<Route path="/contact" component={Contact}/>             
-						<Route path="/event" component={Registration}/>             
-					</Switch>
+			<HashRouter >
+			<div style={{'padding' : '2%'}}>
+				<h1 style={{'paddingLeft' : '5%'}}>Simple SPA</h1>
+				<div>
+					<div style={{'width': '20%' ,'float':'left'}}>
+						<ul className="header" style = {{'float' : 'center'}}>
+							<li><NavLink exact to="/">Home</NavLink></li>
+							<li><NavLink to="/stuff">Notification</NavLink></li>
+							<li><NavLink to="/contact">Contact</NavLink></li>
+							<li><NavLink to="/event">Registration</NavLink></li>
+						</ul>
+					</div>
+					<div className="content" style={{'width': '80%' ,'float':'right'}}>
+						<Switch>
+							<Route exact path="/" component={Home}/>
+							<Route path="/stuff" component={Stuff}/>
+							<Route path="/contact" component={Contact}/>             
+							<Route path="/event" component={Registration}/>             
+						</Switch>
+					</div>
 				</div>
 			</div>
 		</HashRouter>

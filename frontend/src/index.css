@@ -13,6 +13,9 @@ li a {
 	padding: 8px 16px;
 	text-decoration: none;
 }
+li:hover {
+	background-color: gray;
+  }
 
 .active {
 	background-color: #4CAF50;
@@ -22,7 +25,7 @@ li a {
 .formLabel {
 	margin-top: 1rem;
 	margin-bottom: .5rem;
-	color: #aaa;
+	color: black 	;
 	display: block;
 	outline: none;
 	font-family: helvetica neue,helvetica,sans-serif;
@@ -42,6 +45,7 @@ li a {
 	line-height: 1.15;
 	margin: 0 0 0 30px;
 	outline: none;
+	border-radius: 7%;
 }
 
 button {
