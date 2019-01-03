@@ -30,18 +30,16 @@ public class UserEventService {
                 .map(UserEvent::getEvent).collect(Collectors.toList());
     }
 
-    public List<User> getUsersOfParticularEvent(Integer id) {
-        Event event = eventRepository.findById(id).get();
+    public List<User> getUsersOfParticularEvent(Integer eventId) {
+        Event event = eventRepository.findById(eventId).get();
         List<UserEvent> events = userEventRepository.findByEvent(event);
         return events.stream().map(UserEvent::getUser).collect(Collectors.toList());
     }
 
     public UserEvent participate(Integer userId, Integer eventId) {
         UserEvent userEvent = new UserEvent();
-        Event event = eventRepository.findById(eventId).get();
         User user = userRepository.findById(userId).get();
-
-        userEvent.setEvent(event);
+        userEvent.setEvent(eventRepository.findById(eventId).get());
         userEvent.setUser(user);
         userEventRepository.save(userEvent);
         return userEvent;

@@ -20,9 +20,6 @@ public class EventController {
     @Autowired
     private UserEventService userEventService;
 
-    @Autowired
-    private UserService userService;
-
     @PostMapping(value = "/events")
     public Event createEvent(@RequestBody EventDto event) {
         return eventService.create(event);
@@ -46,12 +43,7 @@ public class EventController {
     }
 
     @GetMapping(value = "/events/{id}/users")
-    public List<User> getListofUsers(@PathVariable(value = "id") Integer id) {
+    public List<User> getListOfUsers(@PathVariable(value = "id") Integer id) {
         return userEventService.getUsersOfParticularEvent(id);
-    }
-
-    @GetMapping(value = "/users/{id}/notification")
-    public List<Event> notification(@PathVariable(value = "id") Integer id) {
-        return userService.getCancelledEvents(id);
     }
 }

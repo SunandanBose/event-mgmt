@@ -18,14 +18,6 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private EventRepository eventRepository;
-
-    public List<Event> getCancelledEvents(Integer userId) {
-        User user = userRepository.findById(userId).get();
-        return user.getEventList().stream().filter(Event::isCancelled).collect(Collectors.toList());
-    }
-
     public User create(User user) {
         return userRepository.save(user);
     }
@@ -36,12 +28,5 @@ public class UserService {
 
     public List<User> getAllUsers() {
         return new ArrayList<>(userRepository.findAll());
-    }
-
-    public User participate(Integer id, Integer eventId) {
-        User user = userRepository.findById(id).get();
-        user.getEventList().add(eventRepository.findById(eventId).get());
-        userRepository.save(user);
-        return user;
     }
 }

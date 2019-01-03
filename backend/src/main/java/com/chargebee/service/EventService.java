@@ -13,11 +13,15 @@ import java.util.List;
 @Service
 public class EventService {
 
-    @Autowired
-    private EventRepository eventRepository;
+    private final EventRepository eventRepository;
+
+    private final UserRepository userRepository;
 
     @Autowired
-    private UserRepository userRepository;
+    public EventService(EventRepository eventRepository, UserRepository userRepository) {
+        this.eventRepository = eventRepository;
+        this.userRepository = userRepository;
+    }
 
     public Event create(EventDto eventDto) {
         User user = userRepository.findById(eventDto.getUserId()).get();
@@ -25,17 +29,17 @@ public class EventService {
     }
 
     public List<Event> fetchMyCreatedEvents(Integer userId) {
-
         return eventRepository.findByCreatedBy(userRepository.findById(userId).get());
     }
 
-    public List<Event> fetchOtherCreatedEvents(Integer userId) {
+    public List<Event> fetchOthersCreatedEvents(Integer userId) {
         User user = userRepository.findById(userId).get();
         return eventRepository.findByCreatedByNot(user);
     }
 
     public void deleteEvent(Integer id) {
         Event event = eventRepository.findById(id).get();
+        // Setting this to cancelled. Not deleting entity
         event.setCancelled(true);
         eventRepository.save(event);
     }
@@ -46,7 +50,6 @@ public class EventService {
         eventRepository.save(updatedEvent);
         return updatedEvent;
     }
-
 
     public List<Event> getAll() {
         return eventRepository.findAll();

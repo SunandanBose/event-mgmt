@@ -42,8 +42,8 @@ public class UserController {
 	}
 
 	@GetMapping(value = "/users/{id}/others-events")
-	public List<Event> fetchOtherCreatedEvents(@PathVariable(value = "id") Integer userId){
-		return eventService.fetchOtherCreatedEvents(userId);
+	public List<Event> fetchOthersCreatedEvents(@PathVariable(value = "id") Integer userId){
+		return eventService.fetchOthersCreatedEvents(userId);
 	}
 
 	@PostMapping(value = "/users/{id}/events/{eventId}")
