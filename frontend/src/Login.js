@@ -1,5 +1,5 @@
 import React from "react";
-import FormField from './FormField'
+import FormField from './child/FormField'
 
 export default class Login extends React.Component {
 	constructor(props) {

@@ -31,7 +31,6 @@ li a {
 
 .formInput {
 	box-sizing: border-box;
-	margin-bottom: .5rem;
 	padding: .5rem;
 	width: 30%;
 	display: block;
@@ -41,8 +40,7 @@ li a {
 	border-width: 1px;
 	overflow: visible;
 	line-height: 1.15;
-	margin: 0;
-	margin-left: 30px;
+	margin: 0 0 0 30px;
 	outline: none;
 }
 
@@ -59,4 +57,8 @@ button {
 	color: #fff;
 	cursor: pointer;
 	outline: none;
+}
+
+.event {
+	border-width: 0;
 }

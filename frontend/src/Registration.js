@@ -1,6 +1,6 @@
 import React from "react"
 
-import FormField from "./FormField";
+import FormField from "./child/FormField";
 
 class Registration extends React.Component {
 	constructor(props) {
