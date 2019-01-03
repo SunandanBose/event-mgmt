@@ -3,7 +3,6 @@ package com.chargebee.controller;
 import com.chargebee.dto.EventDto;
 import com.chargebee.model.Event;
 import com.chargebee.model.User;
-import com.chargebee.model.UserEvent;
 import com.chargebee.service.EventService;
 import com.chargebee.service.UserEventService;
 import com.chargebee.service.UserService;
@@ -22,7 +21,7 @@ public class EventController {
     private UserEventService userEventService;
 
     @Autowired
-    private UserService usrservice;
+    private UserService userService;
 
     @PostMapping(value = "/events")
     public Event createEvent(@RequestBody EventDto event) {
@@ -53,6 +52,6 @@ public class EventController {
 
     @GetMapping(value = "/users/{username}/notification")
     public List<Event> notification(@PathVariable(value = "username") String username) {
-        return usrservice.getCancelledEvents(username);
+        return userService.getCancelledEvents(username);
     }
 }

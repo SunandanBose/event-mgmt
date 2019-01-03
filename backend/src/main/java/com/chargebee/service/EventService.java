@@ -19,9 +19,9 @@ public class EventService {
     @Autowired
     private UserRepository userRepository;
 
-    public Event create(EventDto newevent) {
-        User user = userRepository.findById(newevent.getUserId()).get();
-        return eventRepository.save(new Event(newevent, user));
+    public Event create(EventDto eventDto) {
+        User user = userRepository.findById(eventDto.getUserId()).get();
+        return eventRepository.save(new Event(eventDto, user));
     }
 
     public List<Event> fetchMyCreatedEvents(Integer userId) {
