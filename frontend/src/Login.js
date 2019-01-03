@@ -27,8 +27,9 @@ export default class Login extends React.Component {
 	render() {
 		return (
 			<div>
-				Login as:
+				Login as :  
 				<select>
+					<option key="0" label="--Select a user--" value=""></option>
 					{this.state.users.map(user => {
 						return <option key={user.id}>{user.userName}</option>
 					})}

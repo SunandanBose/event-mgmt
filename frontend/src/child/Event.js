@@ -5,11 +5,11 @@ export default class Event extends Component {
 	
 	render() {
 		return (
-			<div className="event">
-				<div className="title" >{this.props.data.eventName}</div>
-				<div className="organizer" >{this.props.data.createdBy.userName}</div>
-				<div className="description">{this.props.data.description}</div>
-			</div>
+			<tr className="event">
+				<td className="title" >{this.props.data.eventName}</td>
+				<td className="organizer" >{this.props.data.createdBy.userName}</td>
+				<td className="description">{this.props.data.description}</td>
+			</tr>
 		)
 	}
 }

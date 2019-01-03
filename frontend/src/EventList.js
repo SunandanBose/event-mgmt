@@ -10,7 +10,7 @@ export default class EventList extends Component{
         }
     }
     componentDidMount(){
-        fetch('http://localhost:8080/users/1/events', {
+        fetch('http://localhost:8080/users/Aakash/notification', {
 			method: 'GET',
 			mode: "cors",
 			headers: {
@@ -29,9 +29,18 @@ export default class EventList extends Component{
     render(){
         return(
             <div>
-				<ul>
-					{this.state.items.map(e => <li><Event data={e}/></li>)}
-				</ul>
+				<table>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Organized By</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.state.items.map(e => <Event data={e}/>)}
+                    </tbody>
+				</table>
             </div>
         )
     }
