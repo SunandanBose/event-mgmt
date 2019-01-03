@@ -52,8 +52,8 @@ public class UserController {
 //		eventService.deleteEvent(id);
 //	}
 
-	@PutMapping(value = "/users/{id}/event{eventId}")
-	public void updateEvent(@PathVariable(value = "id") Integer id, @PathVariable(value = "eventId") Integer eventId){
-		userService.participate(id, eventId);
+	@PutMapping(value = "/users/{id}/events/{eventId}")
+	public User participate(@PathVariable(value = "id") Integer id, @PathVariable(value = "eventId") Integer eventId){
+		return userService.participate(id, eventId);
 	}
 }

@@ -3,8 +3,22 @@ import "../index.css";
 
 export default class Event extends Component {
 
+	constructor(){
+		super();
+		this.participate = this.participate.bind(this);
+	}
 	participate() {
-		
+		//	/users/{id}/event{eventId}
+		fetch('http://localhost:8080/users/'+ this.props.currentUser || 2 +'/events/'+this.props.data.id, {
+			method: 'PUT',
+			mode: "cors",
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
+
+		})
+			
 	}
 
 	render() {

@@ -38,9 +38,10 @@ public class UserService {
         return new ArrayList<>(userRepository.findAll());
     }
 
-    public void participate(Integer id, Integer eventId) {
+    public User participate(Integer id, Integer eventId) {
         User user = userRepository.findById(id).get();
         user.getEventList().add(eventRepository.findById(eventId).get());
         userRepository.save(user);
+        return user;
     }
 }

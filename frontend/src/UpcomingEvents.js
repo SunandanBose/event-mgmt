@@ -31,7 +31,7 @@ class UpcomingEvents extends Component {
 	render() {
 		return (
 			<div>
-				<EventList events={this.state.events} />
+				<EventList events={this.state.events} currentUser={this.props.currentUser} />
 			</div>
 		);
 	}
