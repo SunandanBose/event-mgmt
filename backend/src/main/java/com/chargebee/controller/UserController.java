@@ -43,7 +43,7 @@ public class UserController {
 
 	@GetMapping(value = "/users/{id}/others-events")
 	public List<Event> fetchMyParticipatingEvents(@PathVariable(value = "id") Integer userId){
-		return userEventService.getEventsParticpatedByUser(userId);
+		return eventService.fetchOtherCreatedEvents(userId);
 	}
 
 
@@ -52,9 +52,8 @@ public class UserController {
 //		eventService.deleteEvent(id);
 //	}
 
-//	@PutMapping(value = "/users/{id}")
-//	public Event updateEvent(@PathVariable(value = "id") Integer id,@RequestBody Event evnt){
-//		System.out.println(id);
-//		return eventService.updateEvent(id,evnt);
-//	}
+	@PutMapping(value = "/users/{id}/event{eventId}")
+	public void updateEvent(@PathVariable(value = "id") Integer id, @PathVariable(value = "eventId") Integer eventId){
+		userService.participate(id, eventId);
+	}
 }
