@@ -1,35 +1,13 @@
 import React,{Component} from "react";
 import Event from "./child/Event";
+import "./index.css";
+
 
 export default class EventList extends Component{
-
-    constructor(){
-        super();
-        this.state = {
-            items : []
-        }
-    }
-    componentDidMount(){
-        fetch('http://localhost:8080/users/Aakash/notification', {
-			method: 'GET',
-			mode: "cors",
-			headers: {
-				'Accept': 'application/json',
-				'Content-Type': 'application/json'
-			},
-
-		}).then(res => res.json())
-		.then(json => {
-			console.log(json);
-			this.setState({ items: json })
-		})
-		.catch(e => alert("You currently don't have any notification" + e));
-    }
-
     render(){
         return(
             <div>
-				<table>
+				<table className={"border"}>
                     <thead>
                         <tr>
                             <th>Title</th>
@@ -38,7 +16,7 @@ export default class EventList extends Component{
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.items.map(e => <Event data={e}/>)}
+                        {this.props.events.map(event => <Event key={event.id} data={event}/>)}
                     </tbody>
 				</table>
             </div>

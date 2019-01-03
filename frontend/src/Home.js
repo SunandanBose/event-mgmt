@@ -2,13 +2,10 @@ import React, {Component} from "react";
 import Login from "./Login";
 
 class Home extends Component {
-
-
-
 	render() {
 		return (
 			<div>
-				<Login activeUser={this.props.activeUser}/>
+				<Login users={this.props.users} activeUser={this.props.activeUser}/>
 				<h2>HELLO</h2>
 				<p>
 					"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was

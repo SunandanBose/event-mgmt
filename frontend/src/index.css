@@ -64,6 +64,10 @@ button {
     outline: none;
 }
 
+.small{
+    padding: 7px;
+}
+
 .event {
     border-width: 0;
 }
@@ -72,3 +76,12 @@ button {
     width: 80%;
     float: right
 }
+
+.border{
+    border: 1px solid;
+}
+
+td{
+    border: 1px solid;
+}
+

@@ -29,7 +29,7 @@ public class EventController {
     }
 
     @GetMapping(value = "/events")
-    public List<Event> getAllEvents(@RequestBody EventDto event) {
+    public List<Event> getAllEvents() {
         return eventService.getAll();
     }
 
@@ -50,8 +50,8 @@ public class EventController {
         return userEventService.getUsersOfParticularEvent(id);
     }
 
-    @GetMapping(value = "/users/{username}/notification")
-    public List<Event> notification(@PathVariable(value = "username") String username) {
-        return userService.getCancelledEvents(username);
+    @GetMapping(value = "/users/{id}/notification")
+    public List<Event> notification(@PathVariable(value = "id") Integer id) {
+        return userService.getCancelledEvents(id);
     }
 }
