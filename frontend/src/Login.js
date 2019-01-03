@@ -8,7 +8,7 @@ export default class Login extends React.Component {
 		};
 	}
 
-	componentDidMount(){
+	componentDidMount() {
 		fetch('http://localhost:8080/users', {
 			method: 'GET',
 			mode: "cors",
@@ -20,7 +20,7 @@ export default class Login extends React.Component {
 		}).then(res => res.json())
 			.then(json => {
 				console.log(json);
-				this.setState({ users: json })
+				this.setState({users: json})
 			})
 	}
 
@@ -28,13 +28,13 @@ export default class Login extends React.Component {
 		return (
 			<div>
 				You are logged in as:
-				<select>
+				<select onChange={this.props.activeUser}>
 					<option key="0" label="--Select a user--" value=""/>
 					{this.state.users.map(user => {
-						return <option key={user.id}>{user.userName}</option>
+						return <option value={user.id} key={user.id} label={user.userName}></option>
 					})}
 				</select>
-				 Click on the dropdown to switch user.
+				Click on the dropdown to switch user.
 			</div>
 		)
 	}
