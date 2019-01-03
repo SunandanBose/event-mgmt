@@ -1,39 +1,38 @@
 import React from "react";
-import FormField from './child/FormField'
 
 export default class Login extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			user: {}
+			users: []
 		};
-
-		this.register = this.register.bind(this);
-		this.handleChange = this.handleChange.bind(this);
 	}
 
-	async register(event) {
-		event.preventDefault();
-		alert('A name was submitted: ' + JSON.stringify(this.state.user));
-	}
+	componentDidMount(){
+		fetch('http://localhost:8080/users', {
+			method: 'GET',
+			mode: "cors",
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
 
-	handleChange(e) {
-		const target = e.target;
-		const value = target.value;
-		const name = target.name;
-		let user = {...this.state.user};
-		user[name] = value;
-		this.setState({user});
+		}).then(res => res.json())
+			.then(json => {
+				console.log(json);
+				this.setState({ users: json })
+			})
 	}
 
 	render() {
 		return (
 			<div>
-				<form onSubmit={this.register} method="POST">
-					<FormField elementName="userName" label="User Name :" placeholder="Enter User Name" handleChange={this.handleChange} />
-					<FormField elementName="password" label="Password :" placeholder="Password" handleChange={this.handleChange} />
-					<button type="submit">Login</button>
-				</form>
+				Login as:
+				<select>
+					{this.state.users.map(user => {
+						return <option key={user.id}>{user.userName}</option>
+					})}
+				</select>
 			</div>
 		)
 	}
