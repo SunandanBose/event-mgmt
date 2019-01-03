@@ -56,5 +56,6 @@ yarn-error.log*
 # Java
 
 backend/.idea
+backend/bin
 backend/.gradle
 backend/out
