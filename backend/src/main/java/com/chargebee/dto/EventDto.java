@@ -1,21 +1,9 @@
-package com.chargebee.model;
+package com.chargebee.dto;
 
-import com.chargebee.dto.EventDto;
-
-import javax.persistence.*;
-
-@Entity
-public class Event {
-
-	public Event() {
-	}
-
-	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class EventDto {
 	private Integer id;
-
-	@OneToOne
-	private User createdBy;
+	
+	private Integer userId;
 	
 	private String eventName;
 
@@ -33,25 +21,6 @@ public class Event {
 	
 	private Integer capacity;
 
-	public Event(EventDto eventDto, User user) {
-		this.createdBy = user;
-		this.eventName = eventDto.getEventName();
-		this.description = eventDto.getDescription();
-		this.duration = eventDto.getDuration();
-		this.location = eventDto.getLocation();
-		this.fees = eventDto.getFees();
-		this.tags = eventDto.getTags();
-		this.capacity = eventDto.getCapacity();
-	}
-
-	public User getCreatedBy() {
-		return createdBy;
-	}
-
-	public void setCreatedBy(User createdBy) {
-		this.createdBy = createdBy;
-	}
-
 	public Integer getId() {
 		return id;
 	}
@@ -60,12 +29,28 @@ public class Event {
 		this.id = id;
 	}
 
+	public Integer getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+
 	public String getEventName() {
 		return eventName;
 	}
 
 	public void setEventName(String eventName) {
 		this.eventName = eventName;
+	}
+
+	public boolean isCancelled() {
+		return isCancelled;
+	}
+
+	public void setCancelled(boolean cancelled) {
+		isCancelled = cancelled;
 	}
 
 	public String getDescription() {
@@ -114,24 +99,5 @@ public class Event {
 
 	public void setCapacity(Integer capacity) {
 		this.capacity = capacity;
-	}
-
-	public void merge(Event event) {
-		this.eventName = event.eventName;
-		this.description = event.description;
-		this.duration = event.duration;
-		this.location = event.location;
-		this.fees = event.fees;
-		this.tags = event.tags;
-		this.capacity = event.capacity;
-		
-	}
-
-	public boolean isCancelled() {
-		return isCancelled;
-	}
-
-	public void setCancelled(boolean cancelled) {
-		isCancelled = cancelled;
 	}
 }

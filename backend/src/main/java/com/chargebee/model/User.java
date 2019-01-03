@@ -1,29 +1,41 @@
 package com.chargebee.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
 public class User {
 
 	@Id
-	private String username;
-	
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
+
+	private String userName;
+
+	@JsonIgnore
 	private String password;
 
 	private String role;
 
 	@OneToMany
-	private List<Event> evntList;
+	private List<Event> eventList;
 
-	public String getUsername() {
-		return username;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getPassword() {
@@ -43,11 +55,11 @@ public class User {
 	}
 
 
-	public List<Event> getEvntList() {
-		return evntList;
+	public List<Event> getEventList() {
+		return eventList;
 	}
 
-	public void setEvntList(List<Event> evntList) {
-		this.evntList = evntList;
+	public void setEventList(List<Event> eventList) {
+		this.eventList = eventList;
 	}
 }

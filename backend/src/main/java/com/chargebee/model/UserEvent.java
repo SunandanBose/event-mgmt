@@ -9,8 +9,10 @@ public class UserEvent {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    @OneToOne
     private User user;
 
+    @OneToOne
     private Event event;
 
     public User getUser() {

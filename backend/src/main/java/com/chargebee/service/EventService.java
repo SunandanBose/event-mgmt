@@ -1,72 +1,54 @@
 package com.chargebee.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.chargebee.dto.EventDto;
+import com.chargebee.model.Event;
 import com.chargebee.model.User;
-import com.chargebee.repository.UserEventRepository;
+import com.chargebee.repository.EventRepository;
 import com.chargebee.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.chargebee.model.Event;
-import com.chargebee.repository.EventRepository;
+import java.util.List;
 
 @Service
 public class EventService {
 
-	@Autowired
-	private EventRepository eventrep;
+    @Autowired
+    private EventRepository eventRepository;
 
-	@Autowired
-	private UserEventService usrEvntService;
+    @Autowired
+    private UserRepository userRepository;
 
-	@Autowired
-	private UserRepository usrrepo;
-	
-	public Event create(Event newevent) {
-		//get current user
-		//newevent.setUsername("abcdef");
-		if(newevent.getUsername() != null) {
-			User user = new User();
-			user.setUsername(newevent.getUsername());
-			usrrepo.save(user);
-		}
-		eventrep.save(newevent);
-		return newevent;
-	}
+    public Event create(EventDto newevent) {
+        User user = userRepository.findById(newevent.getUserId()).get();
+        return eventRepository.save(new Event(newevent, user));
+    }
 
-	public List<Event> fetchMyCreatedEvents(String username) {
-		
-		 return eventrep.findEventsByUsername(username);
-	}
+    public List<Event> fetchMyCreatedEvents(Integer userId) {
 
-	public List<Event> fetchOtherCreatedEvents(String username) {
-		List<Event> eventsList = (List<Event>) eventrep.findAll();
-		List<Event> eventCreatedByOthers = new ArrayList();
-		for(Event e : eventsList) {
-			if(!e.getUsername().equals(username)) {
-				eventCreatedByOthers.add(e);
-			}
-		}
-		return eventCreatedByOthers;
-	}
+        return eventRepository.findByCreatedBy(userRepository.findById(userId).get());
+    }
 
-	public void deleteEvent(Integer id) {
-		Event event = eventrep.findById(id).get();
-		event.setCancelled(true);
-		eventrep.save(event);
-		//eventrep.deleteById(id);
-		
-	}
+    public List<Event> fetchOtherCreatedEvents(Integer userId) {
+        User user = userRepository.findById(userId).get();
+        return eventRepository.findByCreatedByNot(user);
+    }
 
-	public Event updateEvent(Integer id, Event evnt) {
-		Event updatedEvent = eventrep.findById(id).get();
-		updatedEvent.merge(evnt);
-		eventrep.save(updatedEvent);
-		return updatedEvent;
-	}
-	
-	
+    public void deleteEvent(Integer id) {
+        Event event = eventRepository.findById(id).get();
+        event.setCancelled(true);
+        eventRepository.save(event);
+    }
 
+    public Event updateEvent(Integer id, Event evnt) {
+        Event updatedEvent = eventRepository.findById(id).get();
+        updatedEvent.merge(evnt);
+        eventRepository.save(updatedEvent);
+        return updatedEvent;
+    }
+
+
+    public List<Event> getAll() {
+        return eventRepository.findAll();
+    }
 }

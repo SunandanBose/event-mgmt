@@ -6,7 +6,7 @@ class FormField extends Component {
 		return (
 			<div>
 				<label class="formLabel">{this.props.label}</label>
-				<input id="username--26" name={this.props.elementName} type="text" class="formInput" label={this.props.label} onChange={this.props.handleChange} placeholder={this.props.placeholder}/>
+				<input name={this.props.elementName} type="text" class="formInput" label={this.props.label} onChange={this.props.handleChange} placeholder={this.props.placeholder}/>
 			</div>
 		)
 	}
