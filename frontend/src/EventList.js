@@ -10,7 +10,7 @@ export default class EventList extends Component{
         }
     }
     componentDidMount(){
-        fetch('http://localhost:8080/user/2/events', {
+        fetch('http://localhost:8080/users/1/events', {
 			method: 'GET',
 			mode: "cors",
 			headers: {
@@ -19,14 +19,19 @@ export default class EventList extends Component{
 			},
 
 		}).then(res => res.json())
-		.then(json => this.setState({ data: json }))
-		.catch(alert("You currently don't have any notification"));
+		.then(json => {
+			console.log(json);
+			this.setState({ items: json })
+		})
+		.catch(e => alert("You currently don't have any notification" + e));
     }
 
     render(){
         return(
             <div>
-                {this.state.items.map(e => <Event data={e}/>)}
+				<ul>
+					{this.state.items.map(e => <li><Event data={e}/></li>)}
+				</ul>
             </div>
         )
     }

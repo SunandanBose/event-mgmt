@@ -16,8 +16,7 @@ class Registration extends React.Component {
 
 	async register(event) {
 		event.preventDefault();
-
-		alert('A name was submitted: ' + JSON.stringify(this.state.event));
+		console.log('A name was submitted: ' + JSON.stringify(this.state.event));
 
 		await fetch('http://localhost:8080/events', {
 			method: (event.id) ? 'PUT' : 'POST',
@@ -28,7 +27,6 @@ class Registration extends React.Component {
 			},
 			body: JSON.stringify(this.state.event),
 		});
-		// this.props.history.push('/groups');
 	}
 
 	handleChange(e) {
@@ -44,7 +42,7 @@ class Registration extends React.Component {
 		return (
 			<div>
 				<form onSubmit={this.register} method="POST">
-					<FormField elementName="userName" label="User Name :" placeholder="Enter User Name" handleChange={this.handleChange} />
+					<FormField elementName="userId" label="User Name :" placeholder="Enter User Name" handleChange={this.handleChange} />
 					<FormField elementName="labelName" label="Event Name :" placeholder="Enter event name" handleChange={this.handleChange} />
 					<FormField elementName="description" label="Description :" placeholder="Enter Description" handleChange={this.handleChange} />
 					<FormField elementName="location" label="Location :" placeholder="Enter Location" handleChange={this.handleChange} />
