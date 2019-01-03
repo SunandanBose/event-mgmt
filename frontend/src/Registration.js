@@ -14,18 +14,21 @@ class Registration extends React.Component {
 		this.handleChange = this.handleChange.bind(this);
 	}
 
-	register(event) {
-		alert('A name was submitted: ' + JSON.stringify(this.state));
-		await fetch('/api/group', {
-			method: (item.id) ? 'PUT' : 'POST',
-			headers: {
-			'Accept': 'application/json',
-			'Content-Type': 'application/json'
-			},
-			body: JSON.stringify(item),
-		});
-		this.props.history.push('/groups');
+	async register(event) {
 		event.preventDefault();
+
+		alert('A name was submitted: ' + JSON.stringify(this.state.event));
+
+		await fetch('http://localhost:8080/events', {
+			method: (event.id) ? 'PUT' : 'POST',
+			mode: "cors",
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(this.state.event),
+		});
+		// this.props.history.push('/groups');
 	}
 
 	handleChange(e) {
@@ -40,7 +43,7 @@ class Registration extends React.Component {
 	render() {
 		return (
 			<div>
-				<form onSubmit={this.register}>
+				<form onSubmit={this.register} method="POST">
 					<FormField elementName="userName" label="User Name :" placeholder="Enter User Name" handleChange={this.handleChange} />
 					<FormField elementName="labelName" label="Event Name :" placeholder="Enter event name" handleChange={this.handleChange} />
 					<FormField elementName="description" label="Description :" placeholder="Enter Description" handleChange={this.handleChange} />
