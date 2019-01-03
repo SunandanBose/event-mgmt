@@ -16,7 +16,7 @@ export default class EventList extends Component{
                         </tr>
                     </thead>
                     <tbody>
-                        {this.props.events.map(event => <Event key={event.id} currentUser={this.props.currentUser} data={event}/>)}
+                        {this.props.events.map(event => <Event key={event.id} currentUser={this.props.currentUser} showParticipate={this.props.showParticipate} data={event}/>)}
                     </tbody>
 				</table>
             </div>

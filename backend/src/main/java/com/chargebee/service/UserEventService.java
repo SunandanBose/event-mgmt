@@ -24,9 +24,10 @@ public class UserEventService {
     @Autowired
     private EventRepository eventRepository;
 
-    public List<Event> getEventsParticpatedByUser(Integer userId) {
+    public List<Event> getEventsParticipatedByUser(Integer userId) {
         User user = userRepository.findById(userId).get();
-        return eventRepository.findByCreatedByNot(user);
+        return userEventRepository.findByUser(user).stream()
+                .map(UserEvent::getEvent).collect(Collectors.toList());
     }
 
     public List<User> getUsersOfParticularEvent(Integer id) {
@@ -35,15 +36,14 @@ public class UserEventService {
         return events.stream().map(UserEvent::getUser).collect(Collectors.toList());
     }
 
-    public UserEvent userParticipatingInEvent(Integer id, String username) {
-        UserEvent usrevnt = new UserEvent();
-        Event event = eventRepository.findById(id).get();
-        User user = userRepository.findByUserName(username);
-        usrevnt.setEvent(event);
-        usrevnt.setUser(user);
-        userEventRepository.save(usrevnt);
-        return usrevnt;
+    public UserEvent participate(Integer userId, Integer eventId) {
+        UserEvent userEvent = new UserEvent();
+        Event event = eventRepository.findById(eventId).get();
+        User user = userRepository.findById(userId).get();
 
-
+        userEvent.setEvent(event);
+        userEvent.setUser(user);
+        userEventRepository.save(userEvent);
+        return userEvent;
     }
 }

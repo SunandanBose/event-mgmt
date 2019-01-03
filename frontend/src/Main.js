@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {HashRouter, NavLink, Route, Switch} from "react-router-dom";
 
 import Home from "./Home";
-import Notification from "./Notification";
+import EventsParticipated from "./EventsParticipated";
 import UpcomingEvents from "./UpcomingEvents";
 import Registration from "./Registration";
 
@@ -47,7 +47,7 @@ class Main extends Component {
 						<div style={{'width': '20%', 'float': 'left'}}>
 							<ul className="header" style={{'float': 'center'}}>
 								<li><NavLink exact to="/">Home</NavLink></li>
-								<li><NavLink to="/notifications">Notification</NavLink></li>
+								<li><NavLink to="/notifications">Events Participated</NavLink></li>
 								<li><NavLink to="/events">Upcoming Events</NavLink></li>
 								<li><NavLink to="/event">Registration</NavLink></li>
 							</ul>
@@ -55,7 +55,7 @@ class Main extends Component {
 						<div className="menu">
 							<Switch>
 								<Route exact path="/" render={(props) => <Home users={this.state.users} activeUser={this.setActiveUser} {...props} />} />
-								<Route path="/notifications" render={(props) => <Notification users={this.state} {...props} />}/>
+								<Route path="/notifications" render={(props) => <EventsParticipated users={this.state} {...props} />}/>
 								<Route path="/events" render={(props) => <UpcomingEvents users={this.state} {...props} />}/>
 								<Route path="/event" component={Registration}/>
 							</Switch>

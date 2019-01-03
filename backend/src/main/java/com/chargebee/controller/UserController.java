@@ -2,6 +2,7 @@ package com.chargebee.controller;
 
 import com.chargebee.model.Event;
 import com.chargebee.model.User;
+import com.chargebee.model.UserEvent;
 import com.chargebee.service.EventService;
 import com.chargebee.service.UserEventService;
 import com.chargebee.service.UserService;
@@ -14,10 +15,9 @@ import java.util.List;
 public class UserController {
 
 	@Autowired
-	private UserEventService userEventService;
-
-	@Autowired
 	private UserService userService;
+	@Autowired
+	private UserEventService userEventService;
 	@Autowired
 	private EventService eventService;
 
@@ -42,18 +42,18 @@ public class UserController {
 	}
 
 	@GetMapping(value = "/users/{id}/others-events")
-	public List<Event> fetchMyParticipatingEvents(@PathVariable(value = "id") Integer userId){
+	public List<Event> fetchOtherCreatedEvents(@PathVariable(value = "id") Integer userId){
 		return eventService.fetchOtherCreatedEvents(userId);
 	}
 
-
-//	@DeleteMapping(value = "/users/{id}")
-//	public void deleteEvent(@PathVariable(value = "id") Integer id){
-//		eventService.deleteEvent(id);
-//	}
-
-	@PutMapping(value = "/users/{id}/events/{eventId}")
-	public User participate(@PathVariable(value = "id") Integer id, @PathVariable(value = "eventId") Integer eventId){
-		return userService.participate(id, eventId);
+	@PostMapping(value = "/users/{id}/events/{eventId}")
+	public UserEvent participate(@PathVariable(value = "id") Integer userId, @PathVariable(value = "eventId") Integer eventId){
+		return userEventService.participate(userId, eventId);
 	}
+
+	@GetMapping(value = "/users/{id}/events-participated")
+	public List<Event> fetchMyParticipatingEvents(@PathVariable(value = "id") Integer userId){
+		return userEventService.getEventsParticipatedByUser(userId);
+	}
+
 }
