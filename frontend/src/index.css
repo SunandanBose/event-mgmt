@@ -3,12 +3,12 @@ ul {
     margin: 0;
     padding: 0;
     background-color: #f1f1f1;
-    width: 100px
+    width: 200px
 }
 
 li a {
     display: block;
-    width: 60px;
+
     color: #000;
     padding: 8px 16px;
     text-decoration: none;
@@ -72,9 +72,14 @@ button {
     border-width: 0;
 }
 
-.menu {
+.content {
     width: 80%;
     float: right
+}
+
+.menu {
+    width: 20%;
+    float: left;
 }
 
 .border{
@@ -85,3 +90,6 @@ td{
     border: 1px solid;
 }
 
+.header{
+	padding-left: 20%
+}

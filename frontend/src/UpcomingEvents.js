@@ -24,7 +24,7 @@ class UpcomingEvents extends Component {
 				console.log(json);
 				this.setState({ events: json })
 			})
-			.catch(e => alert("You currently don't have any notification" + e));
+			.catch(e => alert("You currently don't have any events"));
 	}
 
 
