@@ -1,5 +1,7 @@
 package com.chargebee.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -12,8 +14,10 @@ public class User {
 
 	private String userName;
 
+	@JsonIgnore
 	private String password;
-	
+
+	@JsonIgnore
 	private String role;
 
 	// Events created by user

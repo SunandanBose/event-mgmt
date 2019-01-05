@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.BeanIds;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -27,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     CustomUserDetailsService customUserDetailsService;
 
     @Autowired
-    private CustomAuthenticationEntryPoint unauthorizedHandler;
+    private CustomAuthenticationEntryPoint authenticationEntryPoint;
 
     @Bean
     public JwtAuthenticationFilter jwtAuthenticationFilter() {
@@ -41,11 +43,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordEncoder(passwordEncoder());
     }
 
-//    @Bean(BeanIds.AUTHENTICATION_MANAGER)
-//    @Override
-//    public AuthenticationManager authenticationManagerBean() throws Exception {
-//        return super.authenticationManagerBean();
-//    }
+    @Bean(BeanIds.AUTHENTICATION_MANAGER)
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -60,17 +62,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf()
                 .disable()
                 .exceptionHandling()
-                .authenticationEntryPoint(unauthorizedHandler)
+                .authenticationEntryPoint(authenticationEntryPoint)
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/api/auth/**")
+                .antMatchers("/auth/**")
                 .permitAll()
                 .antMatchers("/api/user/checkUsernameAvailability", "/api/user/checkEmailAvailability")
                 .permitAll()
-                .antMatchers(HttpMethod.GET, "/api/polls/**", "/api/users/**")
+                .antMatchers(HttpMethod.GET, "/events/**", "/users/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated();
