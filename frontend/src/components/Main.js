@@ -5,7 +5,7 @@ import Home from "./Home";
 import EventsParticipated from "./EventsParticipated";
 import UpcomingEvents from "./UpcomingEvents";
 import Registration from "./Registration";
-import './index.css'
+import '../index.css'
 
 class Main extends Component {
 	constructor() {

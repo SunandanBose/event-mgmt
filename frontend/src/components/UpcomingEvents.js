@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import EventList from "./EventList";
+import EventList from "./child/EventList";
 
 class UpcomingEvents extends Component {
 	constructor(){
