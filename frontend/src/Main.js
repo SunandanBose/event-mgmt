@@ -23,7 +23,8 @@ class Main extends Component {
 			mode: "cors",
 			headers: {
 				'Accept': 'application/json',
-				'Content-Type': 'application/json'
+				'Content-Type': 'application/json',
+				'Bearer': 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNTQ2NjkyNDE3LCJleHAiOjE1NDcyOTcyMTd9.N4CXg98Pjehb-wK0OghCM8u7HR52sV2ELV9PEGFZ6KzvrnQzrb56C7VL4hg9tBfuYox2eSabI7mnLyEDEOQg4g'
 			},
 
 		}).then(res => res.json())
