@@ -28,6 +28,8 @@ dependencies {
 	compile("org.springframework.boot:spring-boot-starter-web")
 	// JPA Data (We are going to use Repositories, Entities, Hibernate, etc...)
 	compile ('org.springframework.boot:spring-boot-starter-data-jpa')
+	// Spring Security
+	compile ('org.springframework.boot:spring-boot-starter-security')
 	//Auto restart Development tool
 	runtimeOnly('org.springframework.boot:spring-boot-devtools')
 	// Use MySQL Connector-J
