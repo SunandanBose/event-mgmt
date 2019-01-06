@@ -6,8 +6,6 @@ import {events_participated} from "../actions";
 
 
 const mapStateToProps = (state) => {
-	console.log("In events participated" + JSON.stringify(state));
-	debugger;
 	return {
 		events: state.events,
 		events_participated: state.events_participated,

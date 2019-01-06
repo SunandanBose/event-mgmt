@@ -1,17 +1,32 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import EventList from "./child/EventList";
+import {upcoming_events} from "../actions";
+import {connect} from "react-redux";
+
+const mapStateToProps = (state) => {
+	return {
+		currentUser: state.currentUser,
+		upcoming_events: state.upcoming_events
+	}
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		upcoming_events_action: events => dispatch(upcoming_events(events))
+	}
+};
 
 class UpcomingEvents extends Component {
-	constructor(){
+	constructor() {
 		super();
 		this.state = {
 			events: []
 		}
 	}
 
-	componentDidMount(){
-		let currentUser = this.props.currentUser || 2;
-		fetch('http://localhost:8080/users/'+ currentUser +'/others-events', {
+	componentDidMount() {
+		let currentUserId = this.props.currentUser.user.id;
+		fetch('http://localhost:8080/users/' + currentUserId + '/others-events', {
 			method: 'GET',
 			mode: "cors",
 			headers: {
@@ -21,8 +36,7 @@ class UpcomingEvents extends Component {
 
 		}).then(res => res.json())
 			.then(json => {
-				console.log(json);
-				this.setState({ events: json })
+				this.props.upcoming_events_action(json);
 			})
 			.catch(e => alert("You currently don't have any events"));
 	}
@@ -31,10 +45,10 @@ class UpcomingEvents extends Component {
 	render() {
 		return (
 			<div>
-				<EventList events={this.state.events} showParticipate={true} currentUser={this.props.currentUser} />
+				<EventList events={this.props.upcoming_events} showParticipate={true} currentUser={this.props.currentUser}/>
 			</div>
 		);
 	}
 }
 
-export default UpcomingEvents;
+export default connect(mapStateToProps, mapDispatchToProps)(UpcomingEvents);
