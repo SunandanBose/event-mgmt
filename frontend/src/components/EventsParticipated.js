@@ -1,5 +1,11 @@
 import React, {Component} from "react";
 import EventList from "./child/EventList";
+import {connect} from "react-redux";
+import PropTypes from 'prop-types';
+
+const mapStateToProps = (state) => {
+	return {events: state.events}
+};
 
 class EventsParticipated extends Component {
 	constructor() {
@@ -27,6 +33,7 @@ class EventsParticipated extends Component {
 
 
 	render() {
+		console.log(this.props.events);
 		return (
 			<div>
 				<EventList events={this.state.events} showParticipate={false}/>
@@ -35,4 +42,8 @@ class EventsParticipated extends Component {
 	}
 }
 
-export default EventsParticipated;
+EventsParticipated.propTypes = {
+	events: PropTypes.array
+};
+
+export default connect(mapStateToProps)(EventsParticipated)
