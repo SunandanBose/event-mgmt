@@ -20,13 +20,6 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 class EventsParticipated extends Component {
-	constructor() {
-		super();
-		this.state = {
-			events: []
-		}
-	}
-
 	componentDidMount() {
 		fetch('http://localhost:8080/users/' + this.props.currentUser.user.id + '/events-participated', {
 			method: 'GET',
