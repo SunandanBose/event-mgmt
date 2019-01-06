@@ -22,7 +22,7 @@ class Login extends React.Component {
 	}
 
 	async register(event) {
-		console.log(this.state);
+		event.preventDefault();
 		fetch('http://localhost:8080/auth/login', {
 			method: 'POST',
 			mode: "cors",
@@ -32,11 +32,10 @@ class Login extends React.Component {
 			body: JSON.stringify(this.state.user)
 		}).then(res => res.json())
 			.then(json => {
-				console.log(json);
+				console.log("Successfully logged in");
 				this.props.currentUser(json);
 				this.setState({users: json})
 			});
-		event.preventDefault();
 	}
 
 	handleChange(e) {
