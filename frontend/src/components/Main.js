@@ -7,7 +7,7 @@ import UpcomingEvents from "./UpcomingEvents";
 import Registration from "./Registration";
 import '../index.css'
 
-class Main extends Component {
+export default class Main extends Component {
 	constructor() {
 		super();
 		this.state = {
@@ -56,9 +56,12 @@ class Main extends Component {
 						</div>
 						<div className="content">
 							<Switch>
-								<Route exact path="/" render={(props) => <Home users={this.state.users} activeUser={this.setActiveUser} {...props} />} />
-								<Route path="/notifications" render={(props) => <EventsParticipated users={this.state} {...props} />}/>
-								<Route path="/events" render={(props) => <UpcomingEvents users={this.state} {...props} />}/>
+								<Route exact path="/" render={(props) => <Home users={this.state.users}
+																			   activeUser={this.setActiveUser} {...props} />}/>
+								<Route path="/notifications"
+									   render={(props) => <EventsParticipated users={this.state} {...props} />}/>
+								<Route path="/events"
+									   render={(props) => <UpcomingEvents users={this.state} {...props} />}/>
 								<Route path="/event" component={Registration}/>
 							</Switch>
 						</div>
@@ -68,5 +71,3 @@ class Main extends Component {
 		);
 	}
 }
-
-export default Main;

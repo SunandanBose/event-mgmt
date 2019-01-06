@@ -33,7 +33,6 @@ class EventsParticipated extends Component {
 
 
 	render() {
-		console.log(this.props.events);
 		return (
 			<div>
 				<EventList events={this.state.events} showParticipate={false}/>

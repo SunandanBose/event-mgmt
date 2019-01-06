@@ -6,7 +6,7 @@ export default class FormField extends Component {
 		return (
 			<div>
 				<label className="formLabel">{this.props.label}</label>
-				<input name={this.props.elementName} type="text" className="formInput" label={this.props.label} onChange={this.props.handleChange} placeholder={this.props.placeholder}/>
+				<input name={this.props.elementName} type={this.props.type || "text"} className="formInput" label={this.props.label} onChange={this.props.handleChange} placeholder={this.props.placeholder}/>
 			</div>
 		)
 	}

@@ -1,7 +1,9 @@
 package com.chargebee.controller;
 
-import com.chargebee.model.Credentials;
+import com.chargebee.dto.AuthorisedUser;
+import com.chargebee.dto.Credentials;
 import com.chargebee.security.JwtTokenProvider;
+import com.chargebee.security.SpringSecurityUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -26,11 +28,8 @@ public class AuthController {
         UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(credentials.getUserName(), credentials.getPassword());
         Authentication authenticationResult = authenticationManager.authenticate(authentication);
         SecurityContextHolder.getContext().setAuthentication(authenticationResult);
-
+        SpringSecurityUser principal = (SpringSecurityUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String token = jwtTokenProvider.generateToken(authenticationResult);
-        return ResponseEntity.ok(new HashMap<String, String>(){{
-            put("token", token);
-            put("tokenType", "Bearer");
-        }});
+        return ResponseEntity.ok(new AuthorisedUser("Bearer", token, principal.getUser()));
     }
 }

@@ -81,6 +81,9 @@ public class SpringSecurityUser implements UserDetails{
 		 
 		return true;
 	}
-	
 
+
+	public User getUser() {
+		return user;
+	}
 }

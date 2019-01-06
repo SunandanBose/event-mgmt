@@ -1,4 +1,4 @@
-package com.chargebee.model;
+package com.chargebee.dto;
 
 public class Credentials {
     private String userName;

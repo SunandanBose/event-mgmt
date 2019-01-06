@@ -1,7 +1,16 @@
 import React from "react";
 import FormField from './child/FormField'
 
-export default class Login extends React.Component {
+import {currentUser} from "../actions";
+import {connect} from "react-redux";
+
+const mapDispatchToProps = dispatch => {
+	return {
+		currentUser: user => dispatch(currentUser(user))
+	};
+};
+
+class Login extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -24,6 +33,7 @@ export default class Login extends React.Component {
 		}).then(res => res.json())
 			.then(json => {
 				console.log(json);
+				this.props.currentUser(json);
 				this.setState({users: json})
 			});
 		event.preventDefault();
@@ -43,10 +53,12 @@ export default class Login extends React.Component {
 			<div>
 				<form onSubmit={this.register} method="POST">
 					<FormField elementName="userName" label="User Name :" placeholder="Enter User Name" handleChange={this.handleChange} />
-					<FormField elementName="password" label="Password :" placeholder="Password" handleChange={this.handleChange} />
+					<FormField elementName="password" label="Password :" placeholder="Password" handleChange={this.handleChange} type={"password"}/>
 					<button type="submit">Login</button>
 				</form>
 			</div>
 		)
 	}
 }
+
+export default connect(null, mapDispatchToProps)(Login)
