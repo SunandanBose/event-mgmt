@@ -5,7 +5,8 @@ import Home from "./Home";
 import EventsParticipated from "./EventsParticipated";
 import UpcomingEvents from "./UpcomingEvents";
 import Registration from "./Registration";
-import '../index.css'
+import '../css/index.css'
+import Header from "./Header"
 
 export default class Main extends Component {
 	constructor() {
@@ -44,7 +45,7 @@ export default class Main extends Component {
 		return (
 			<HashRouter>
 				<div>
-					<h1 className="header">Event Management</h1>
+					<Header/>
 					<div>
 						<div className="menu">
 							<ul style={{'float': 'center'}}>

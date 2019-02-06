@@ -1,0 +1,33 @@
+.header-fixed {
+    top: 0;
+    left: 0;
+    background-color: #0088cc;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.heading {
+    padding-left: 15%;
+    padding-top: 20px;
+}
+
+.authorization {
+    float: right;
+    padding-right: 10%;
+}
+
+.inline {
+    display: inline;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    width: 200px
+}
+
+li {
+    float: left;
+}
