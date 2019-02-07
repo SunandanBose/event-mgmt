@@ -1,0 +1,21 @@
+.navbar-fixed{
+    float : left;
+    margin: 20px;
+}
+
+.navbar-row{
+    width: 200px;
+    background-color: whitesmoke;
+}
+
+.active{
+    background-color: rgb(138, 171, 209);
+    font-weight: bold; 
+}
+
+.navbar-row:hover{
+    background-color: darkgray;
+    border-radius: 0px;
+}
+
+
