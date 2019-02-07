@@ -28,6 +28,11 @@ ul {
     width: 200px
 }
 
+li:hover{
+    background-color: rgb(160, 226, 243);
+    border-radius: 20px;
+}
+
 li {
     float: left;
 }
