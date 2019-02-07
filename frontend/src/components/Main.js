@@ -7,6 +7,7 @@ import UpcomingEvents from "./UpcomingEvents";
 import Registration from "./Registration";
 import '../css/index.css'
 import Header from "./Header"
+import NavBar from "./NavBar";
 
 export default class Main extends Component {
 	constructor() {
@@ -46,15 +47,16 @@ export default class Main extends Component {
 			<HashRouter>
 				<div>
 					<Header/>
+					<NavBar />
 					<div>
-						<div className="menu">
+						{/* <div className="menu">
 							<ul style={{'float': 'center'}}>
 								<li><NavLink exact to="/">Home</NavLink></li>
 								<li><NavLink to="/notifications">Events Participated</NavLink></li>
 								<li><NavLink to="/events">Upcoming Events</NavLink></li>
 								<li><NavLink to="/event">Registration</NavLink></li>
 							</ul>
-						</div>
+						</div> */}
 						<div className="content">
 							<Switch>
 								<Route exact path="/" render={(props) => <Home users={this.state.users}
