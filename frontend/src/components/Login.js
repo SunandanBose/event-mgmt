@@ -11,8 +11,9 @@ const mapDispatchToProps = dispatch => {
 };
 
 const mapStateToProps = (state) => {
+	//debugger
 	return {
-		loggedInUser : state.user
+		loggedInUser : state.currentUser
 	}
 }
 
@@ -57,7 +58,7 @@ class Login extends React.Component {
 
 	render() {
 		return (
-			<div className={this.props.loggedInUser ? "hide" : "" }>
+			<div className={(this.props.loggedInUser!=undefined) ? "hide" : "" }>
 				<form onSubmit={this.register} method="POST">
 					<FormField elementName="userName" label="User Name :" placeholder="Enter User Name" handleChange={this.handleChange} />
 					<FormField elementName="password" label="Password :" placeholder="Password" handleChange={this.handleChange} type={"password"}/>
@@ -68,4 +69,4 @@ class Login extends React.Component {
 	}
 }
 
-export default connect(null, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
