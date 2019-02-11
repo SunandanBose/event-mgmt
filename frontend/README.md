@@ -22,6 +22,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 - Fixed Header implement
     - User name
     - Logout
+    - Prevent state on refresh
     - Drop down for user info
     - Photo (Low scope)
 
@@ -34,3 +35,4 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 ## Open questions
 - How should we structure a component?
 - Why is there space on top of my header?
+- https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html

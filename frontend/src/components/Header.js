@@ -1,14 +1,36 @@
 import React from "react"
 import "../css/header.css"
 import HeaderLink from "./child/HeaderLink";
+import {connect} from "react-redux";
 
-export default class Header extends React.Component {
+const mapStateToProps = (state) => {
+	return {
+		loggedInUser: state.currentUser
+	}
+};
+
+
+class Header extends React.Component {
+	constructor() {
+		super();
+		this.state = {
+			userLoggedIn: false
+		}
+	}
+
+	componentDidUpdate(previousProps) {
+		if (this.props.loggedInUser !== previousProps.loggedInUser) {
+			this.props.loggedInUser ? this.setState({userLoggedIn: true}) : this.setState({userLoggedIn: false});
+		}
+	}
+
 	render() {
 		return (
 			<div className="header-fixed">
 				<div className="heading">
 					<h1 className="inline">Vlog site</h1>
-					<ul className="authorization">
+					{this.props.loggedInUser && <div className="authorization heading">Hi {this.props.loggedInUser.user.userName}</div>}
+					<ul className={this.state.userLoggedIn ? "hide authorization" : "authorization"}>
 						<li><HeaderLink href="#" text="Login"/></li>
 						<li><HeaderLink href="#" text="Sign up"/></li>
 					</ul>
@@ -16,3 +38,5 @@ export default class Header extends React.Component {
 			</div>)
 	}
 }
+
+export default connect(mapStateToProps, null)(Header);
