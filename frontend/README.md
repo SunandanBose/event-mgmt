@@ -22,7 +22,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 - Fixed Header implement
     - User name
     - Logout
-    - Prevent state on refresh
+    - Prevent state on refresh(Low Scope)
     - Drop down for user info
     - Photo (Low scope)
 
