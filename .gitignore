@@ -1,6 +1,6 @@
 .gradle
 .class
-.properties
+*.properties
 /build/
 backend/build/
 !gradle/wrapper/gradle-wrapper.jar
