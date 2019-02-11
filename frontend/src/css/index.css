@@ -92,3 +92,6 @@ td{
 body {
     margin: 0;
 }
+.hide{
+    display : none;
+}

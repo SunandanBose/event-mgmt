@@ -10,11 +10,18 @@ const mapDispatchToProps = dispatch => {
 	};
 };
 
+const mapStateToProps = (state) => {
+	return {
+		loggedInUser : state.user
+	}
+}
+
 class Login extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			user: {}
+			user: {},
+			className : ""
 		};
 
 		this.register = this.register.bind(this);
@@ -34,9 +41,10 @@ class Login extends React.Component {
 			.then(json => {
 				console.log("Successfully logged in");
 				this.props.currentUser(json);
-				this.setState({users: json})
+				this.setState({users: json, className : "hide"})
 			});
 	}
+	
 
 	handleChange(e) {
 		const target = e.target;
@@ -49,7 +57,7 @@ class Login extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div className={this.props.loggedInUser ? "hide" : "" }>
 				<form onSubmit={this.register} method="POST">
 					<FormField elementName="userName" label="User Name :" placeholder="Enter User Name" handleChange={this.handleChange} />
 					<FormField elementName="password" label="Password :" placeholder="Password" handleChange={this.handleChange} type={"password"}/>
