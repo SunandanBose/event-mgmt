@@ -1,6 +1,7 @@
 package com.chargebee.controller;
 
 import com.chargebee.dto.EventDto;
+import com.chargebee.model.Blog;
 import com.chargebee.model.Event;
 import com.chargebee.model.User;
 import com.chargebee.service.EventService;
@@ -45,5 +46,10 @@ public class EventController {
     @GetMapping(value = "/events/{id}/users")
     public List<User> getListOfUsers(@PathVariable(value = "id") Integer id) {
         return userEventService.getUsersOfParticularEvent(id);
+    }
+
+    @PostMapping(value = "/blogs")
+    private String createNewBlog(@RequestBody Blog blog){
+        return eventService.createBlog(blog);
     }
 }

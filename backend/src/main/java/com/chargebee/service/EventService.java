@@ -1,8 +1,10 @@
 package com.chargebee.service;
 
 import com.chargebee.dto.EventDto;
+import com.chargebee.model.Blog;
 import com.chargebee.model.Event;
 import com.chargebee.model.User;
+import com.chargebee.repository.BlogRepository;
 import com.chargebee.repository.EventRepository;
 import com.chargebee.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +19,13 @@ public class EventService {
 
     private final UserRepository userRepository;
 
+    private final BlogRepository blogRepository;
+
     @Autowired
-    public EventService(EventRepository eventRepository, UserRepository userRepository) {
+    public EventService(EventRepository eventRepository, UserRepository userRepository, BlogRepository blogRepository) {
         this.eventRepository = eventRepository;
         this.userRepository = userRepository;
+        this.blogRepository = blogRepository;
     }
 
     public Event create(EventDto eventDto) {
@@ -49,6 +54,11 @@ public class EventService {
         updatedEvent.merge(evnt);
         eventRepository.save(updatedEvent);
         return updatedEvent;
+    }
+
+    public String createBlog(Blog blog){
+        blogRepository.save(blog);
+        return "Created Successfully!!!";
     }
 
     public List<Event> getAll() {
