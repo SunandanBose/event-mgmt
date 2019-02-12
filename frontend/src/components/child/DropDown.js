@@ -3,9 +3,10 @@ import React from "react";
 export default class DropDown extends React.Component{
     render(){
         return(
-            <select>
-                <option value="logOut">Log Out</option>
-            </select>
+            <div className={this.props.DropDownClass}>
+                <a href="#">User Info</a>
+                <a href="#">logout</a>
+            </div>
         )
     }
 }

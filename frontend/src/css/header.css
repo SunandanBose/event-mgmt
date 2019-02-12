@@ -7,7 +7,7 @@
 }
 
 .heading {
-    padding-left: 15%;
+    padding-left: 10%;
     padding-top: 20px;
 }
 
@@ -36,4 +36,28 @@ li:hover{
 
 li {
     float: left;
+}
+
+.authorization.heading{
+    width: 100px;
+}
+
+.authorization.heading:hover .dropDownContent {
+    display: block;
+}
+.dropDownContent{
+    display : none;
+    position : absolute;
+}
+
+.dropDownContent a{
+    color: black;
+    padding: 12px;
+    display: block;
+    text-decoration: none;
+    background-color: gray;
+}
+
+.dropDownContent a:hover{
+    background-color: lightgrey;
 }

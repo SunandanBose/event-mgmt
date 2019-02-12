@@ -2,6 +2,7 @@ import React from "react"
 import "../css/header.css"
 import HeaderLink from "./child/HeaderLink";
 import {connect} from "react-redux";
+import DropDown from "./child/DropDown";
 
 const mapStateToProps = (state) => {
 	return {
@@ -24,12 +25,21 @@ class Header extends React.Component {
 		}
 	}
 
+
+
 	render() {
 		return (
 			<div className="header-fixed">
 				<div className="heading">
 					<h1 className="inline">Vlog site</h1>
-					{this.props.loggedInUser && <div className="authorization heading">Hi {this.props.loggedInUser.user.userName}</div>}
+					{
+						this.props.loggedInUser && 
+						<div className="authorization heading">
+							Hi {this.props.loggedInUser.user.userName}
+							<DropDown DropDownClass="dropDownContent" />
+						</div>
+					}
+
 					<ul className={this.state.userLoggedIn ? "hide authorization" : "authorization"}>
 						<li><HeaderLink href="#" text="Login"/></li>
 						<li><HeaderLink href="#" text="Sign up"/></li>
