@@ -2,12 +2,13 @@ import React, {Component} from "react";
 import {HashRouter, NavLink, Route, Switch} from "react-router-dom";
 
 import Home from "./Home";
-import EventsParticipated from "./EventsParticipated";
+import EventsParticipated from "./CreateBlog";
 import UpcomingEvents from "./UpcomingEvents";
 import Registration from "./Registration";
 import '../css/index.css'
 import Header from "./Header"
 import NavBar from "./NavBar";
+import CreateBlog from "./CreateBlog";
 
 export default class Main extends Component {
 	constructor() {
@@ -49,20 +50,12 @@ export default class Main extends Component {
 					<Header/>
 					<NavBar />
 					<div>
-						{/* <div className="menu">
-							<ul style={{'float': 'center'}}>
-								<li><NavLink exact to="/">Home</NavLink></li>
-								<li><NavLink to="/notifications">Events Participated</NavLink></li>
-								<li><NavLink to="/events">Upcoming Events</NavLink></li>
-								<li><NavLink to="/event">Registration</NavLink></li>
-							</ul>
-						</div> */}
 						<div className="content">
 							<Switch>
 								<Route exact path="/" render={(props) => <Home users={this.state.users}
 																			   activeUser={this.setActiveUser} {...props} />}/>
 								<Route path="/notifications"
-									   render={(props) => <EventsParticipated users={this.state} {...props} />}/>
+									   render={(props) => <CreateBlog users={this.state} {...props} />}/>
 								<Route path="/events"
 									   render={(props) => <UpcomingEvents users={this.state} {...props} />}/>
 								<Route path="/event" component={Registration}/>

@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import EventList from "./child/EventList";
+import EventList from "./child/TextField";
 import {upcoming_events} from "../actions";
 import {connect} from "react-redux";
 
