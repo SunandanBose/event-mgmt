@@ -47,9 +47,4 @@ public class EventController {
     public List<User> getListOfUsers(@PathVariable(value = "id") Integer id) {
         return userEventService.getUsersOfParticularEvent(id);
     }
-
-    @PostMapping(value = "/blogs")
-    private String createNewBlog(@RequestBody Blog blog){
-        return eventService.createBlog(blog);
-    }
 }

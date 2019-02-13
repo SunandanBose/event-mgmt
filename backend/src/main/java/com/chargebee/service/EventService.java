@@ -56,10 +56,7 @@ public class EventService {
         return updatedEvent;
     }
 
-    public String createBlog(Blog blog){
-        blogRepository.save(blog);
-        return "Created Successfully!!!";
-    }
+
 
     public List<Event> getAll() {
         return eventRepository.findAll();
