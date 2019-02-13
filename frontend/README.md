@@ -28,7 +28,10 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 - Nav Bar (Menu)
 - Admin login
+- Create Blog
+	- Clear page on submit
 - List of blogs (UI)
+- Delete Blog
 - Page for a blog
     Blog bottom reaction (Low scope)
     
@@ -36,3 +39,5 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 - How should we structure a component?
 - Why is there space on top of my header?
 - https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html
+- Closure in JavaScript
+- Error Boundary React 16``

@@ -1,14 +1,14 @@
 import React, {Component} from "react";
-import {HashRouter, NavLink, Route, Switch} from "react-router-dom";
+import {HashRouter, Route, Switch} from "react-router-dom";
 
 import Home from "./Home";
-import EventsParticipated from "./CreateBlog";
-import UpcomingEvents from "./UpcomingEvents";
+import Blogs from "./Blogs";
 import Registration from "./Registration";
 import '../css/index.css'
 import Header from "./Header"
 import NavBar from "./NavBar";
 import CreateBlog from "./CreateBlog";
+import Blog from "./Blog";
 
 export default class Main extends Component {
 	constructor() {
@@ -57,8 +57,9 @@ export default class Main extends Component {
 								<Route path="/notifications"
 									   render={(props) => <CreateBlog users={this.state} {...props} />}/>
 								<Route path="/events"
-									   render={(props) => <UpcomingEvents users={this.state} {...props} />}/>
+									   render={(props) => <Blogs users={this.state} {...props} />}/>
 								<Route path="/event" component={Registration}/>
+								<Route path="/blog" component={Blog}/>
 							</Switch>
 						</div>
 					</div>

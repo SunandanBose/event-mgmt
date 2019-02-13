@@ -42,7 +42,7 @@ class CreateBlog extends Component {
 		})
 		.then(() => {
 			alert("Successfully Created!!!")
-
+			
 		})
 		.catch(() => alert("Sorry Better Luck Next Time!!!"));
 	}

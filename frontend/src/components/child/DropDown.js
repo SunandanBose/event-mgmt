@@ -9,7 +9,7 @@ export default class DropDown extends React.Component{
         return(
             <div className={this.props.DropDownClass}>
                 <a href="#">User Info</a>
-                <a href="#" onClick={this.logOut}>logout</a>
+                <a href="#" onClick={this.logOut}>Logout</a>
             </div>
         )
     }
