@@ -20,19 +20,19 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 ## TODO:
 
 - Fixed Header implement
-    - User name
-    - Logout
+    - User name --done
+    - Logout --done
     - Prevent state on refresh(Low Scope)
-    - Drop down for user info
+    - Drop down for user info --done
     - Photo (Low scope)
 
-- Nav Bar (Menu)
-- Admin login
-- Create Blog
+- Nav Bar (Menu) --done
+- Admin login  
+- Create Blog  --done
 	- Clear page on submit
-- List of blogs (UI)
-- Delete Blog
-- Page for a blog
+- List of blogs (UI) --done
+- Delete Blog 
+- Page for a blog --done
     Blog bottom reaction (Low scope)
     
 ## Open questions
