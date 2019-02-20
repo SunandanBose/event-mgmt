@@ -60,4 +60,7 @@ backend/.idea
 backend/bin
 backend/.gradle
 backend/out
+
+# Pem
+
 *.pem
