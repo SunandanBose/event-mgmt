@@ -5,7 +5,6 @@ class Home extends Component {
 	render() {
 		return (
 			<div>
-				<Login users={this.props.users} activeUser={this.props.activeUser}/>
 				<h2>HELLO</h2>
 				<p>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis porta risus. Proin a nibh quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam eu justo mattis, tincidunt ex id, interdum lorem. Ut vitae ornare neque. Fusce bibendum pretium fringilla. Integer dictum tincidunt leo ac convallis.

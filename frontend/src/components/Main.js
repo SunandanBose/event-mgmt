@@ -9,6 +9,7 @@ import Header from "./Header"
 import NavBar from "./NavBar";
 import CreateBlog from "./CreateBlog";
 import Blog from "./Blog";
+import Login from "./Login";
 
 export default class Main extends Component {
 	constructor() {
@@ -60,6 +61,9 @@ export default class Main extends Component {
 									   render={(props) => <Blogs users={this.state} {...props} />}/>
 								<Route path="/event" component={Registration}/>
 								<Route path="/blog" component={Blog}/>
+								<Route path="/login" render={(props) => <Login users={this.state.users}
+																			   activeUser={this.setActiveUser} {...props} />}/>
+								
 							</Switch>
 						</div>
 					</div>

@@ -3,6 +3,7 @@ import "../css/header.css"
 import HeaderLink from "./child/HeaderLink";
 import {connect} from "react-redux";
 import DropDown from "./child/DropDown";
+import NavBarElement from "./child/NavBarElement";
 
 const mapStateToProps = (state) => {
 	return {
@@ -41,8 +42,8 @@ class Header extends React.Component {
 					}
 
 					<ul className={this.state.userLoggedIn ? "hide authorization" : "authorization"}>
-						<li><HeaderLink href="#" text="Login"/></li>
-						<li><HeaderLink href="#" text="Sign up"/></li>
+						<li><NavBarElement to="/login" text="Login"/></li>
+						<li><NavBarElement to="/signup" text="Sign up"/></li>
 					</ul>
 				</div>
 			</div>)
