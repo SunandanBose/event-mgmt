@@ -42,6 +42,7 @@ class Login extends React.Component {
 				console.log("Successfully logged in");
 				this.props.currentUser(json);
 				this.setState({users: json, className: "hide"})
+				this.props.history.push('/');
 			});
 	}
 
