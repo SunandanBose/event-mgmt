@@ -52,7 +52,7 @@ class Blogs extends Component {
 			<div>
 				<h1>List of Blogs</h1>
 				{this.state.events.map((event) =>
-				<BlogBox title={event.title} body={event.body} />
+					<BlogBox title={event.title} body={event.body} />
 				)}
 
 
