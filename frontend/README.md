@@ -38,9 +38,9 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 
  Bug
-- After Logging In the Home Screen doesn't show
+- After Logging In the Home Screen doesn't show  --completed
 
-- Links should be shown as hand sumbol(My Blog Page)
+- Links should be shown as hand sumbol(My Blog Page)  --completed
 
 - Current Page is not selected in the Nav Bar
 
