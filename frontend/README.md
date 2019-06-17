@@ -34,6 +34,29 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 - Delete Blog 
 - Page for a blog --done
     Blog bottom reaction (Low scope)
+
+
+
+ Bug
+- After Logging In the Home Screen doesn't show
+
+- Links should be shown as hand sumbol(My Blog Page)
+
+- Current Page is not selected in the Nav Bar
+
+ New Features
+
+- Sign Up Page
+- User Info Page
+- Remove Alerts and put proper screens to display messages
+- Remove Event Registration feature
+- Feature to Upload Video
+- Improve UI of Dropdown
+
+
+Infra changes
+- Dockerize backend and frontend
+- Deploy to AWS
     
 ## Open questions
 - How should we structure a component?
@@ -41,3 +64,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 - https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html
 - Closure in JavaScript
 - Error Boundary React 16``
+
+
+
+
