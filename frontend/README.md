@@ -28,6 +28,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 - Nav Bar (Menu) --done
 - Admin login  
+- Failed login should show error message and not redirect
 - Create Blog  --done
 	- Clear page on submit
 - List of blogs (UI) --done
