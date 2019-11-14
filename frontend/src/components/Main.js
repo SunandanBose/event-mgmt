@@ -10,6 +10,7 @@ import NavBar from "./NavBar";
 import CreateBlog from "./CreateBlog";
 import Blog from "./Blog";
 import Login from "./Login";
+import SignUp from "./Auth/Signup";
 
 export default class Main extends Component {
 	constructor() {
@@ -61,6 +62,7 @@ export default class Main extends Component {
 									   render={(props) => <Blogs users={this.state} {...props} />}/>
 								<Route path="/event" component={Registration}/>
 								<Route path="/blog" component={Blog}/>
+								<Route path="/signup" component={SignUp}/>
 								<Route path="/login" render={(props) => <Login users={this.state.users}
 																			   activeUser={this.setActiveUser} {...props} />}/>
 								
