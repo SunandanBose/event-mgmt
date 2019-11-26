@@ -30,4 +30,14 @@ public class AuthController {
         String token = jwtTokenProvider.generateToken(authenticationResult);
         return ResponseEntity.ok(new AuthorisedUser("Bearer", token, principal.getUser()));
     }
+
+    @PostMapping(value = "auth/signup")
+    public ResponseEntity signup(@RequestBody SignUpDto signUpDto){
+        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(credentials.getUserName(), credentials.getPassword());
+        Authentication authenticationResult = authenticationManager.authenticate(authentication);
+        SecurityContextHolder.getContext().setAuthentication(authenticationResult);
+        SpringSecurityUser principal = (SpringSecurityUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String token = jwtTokenProvider.generateToken(authenticationResult);
+        return ResponseEntity.ok(new AuthorisedUser("Bearer", token, principal.getUser()));
+    }
 }
