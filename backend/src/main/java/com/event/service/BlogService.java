@@ -1,12 +1,11 @@
-package com.chargebee.service;
+package com.event.service;
 
-import com.chargebee.model.Blog;
-import com.chargebee.repository.BlogRepository;
+import com.event.model.Blog;
+import com.event.repository.BlogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Properties;
 
 @Service
 public class BlogService {

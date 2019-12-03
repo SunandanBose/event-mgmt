@@ -1,4 +1,4 @@
-package com.chargebee.security;
+package com.event.security;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;

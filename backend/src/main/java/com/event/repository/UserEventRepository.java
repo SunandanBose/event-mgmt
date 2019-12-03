@@ -1,8 +1,8 @@
-package com.chargebee.repository;
+package com.event.repository;
 
-import com.chargebee.model.Event;
-import com.chargebee.model.User;
-import com.chargebee.model.UserEvent;
+import com.event.model.Event;
+import com.event.model.User;
+import com.event.model.UserEvent;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

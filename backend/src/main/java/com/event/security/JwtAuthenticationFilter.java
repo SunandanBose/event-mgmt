@@ -1,4 +1,4 @@
-package com.chargebee.security;
+package com.event.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

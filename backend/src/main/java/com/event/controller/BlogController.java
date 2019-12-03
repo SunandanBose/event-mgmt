@@ -1,7 +1,7 @@
-package com.chargebee.controller;
+package com.event.controller;
 
-import com.chargebee.model.Blog;
-import com.chargebee.service.BlogService;
+import com.event.model.Blog;
+import com.event.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

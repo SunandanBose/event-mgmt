@@ -1,6 +1,6 @@
-package com.chargebee.repository;
+package com.event.repository;
 
-import com.chargebee.model.User;
+import com.event.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

@@ -1,12 +1,11 @@
-package com.chargebee.service;
+package com.event.service;
 
-import com.chargebee.dto.EventDto;
-import com.chargebee.model.Blog;
-import com.chargebee.model.Event;
-import com.chargebee.model.User;
-import com.chargebee.repository.BlogRepository;
-import com.chargebee.repository.EventRepository;
-import com.chargebee.repository.UserRepository;
+import com.event.dto.EventDto;
+import com.event.model.Event;
+import com.event.model.User;
+import com.event.repository.BlogRepository;
+import com.event.repository.EventRepository;
+import com.event.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

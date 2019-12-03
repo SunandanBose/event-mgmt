@@ -1,6 +1,6 @@
-package com.chargebee.dto;
+package com.event.dto;
 
-import com.chargebee.model.User;
+import com.event.model.User;
 
 public class AuthorisedUser {
     private String token;

@@ -1,18 +1,14 @@
-package com.chargebee.service;
+package com.event.service;
 
-import com.chargebee.model.Event;
-import com.chargebee.model.User;
-import com.chargebee.repository.EventRepository;
-import com.chargebee.repository.UserRepository;
-import com.chargebee.security.SecurityConfig;
+import com.event.model.User;
+import com.event.repository.UserRepository;
+import com.event.security.SecurityConfig;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class UserService {

@@ -1,4 +1,4 @@
-package com.chargebee.dto;
+package com.event.dto;
 
 public class EventDto {
 	private Integer id;

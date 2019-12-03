@@ -1,10 +1,9 @@
-package com.chargebee.controller;
+package com.event.controller;
 
-import com.chargebee.dto.AuthorisedUser;
-import com.chargebee.dto.Credentials;
-import com.chargebee.dto.SignUp;
-import com.chargebee.security.JwtTokenProvider;
-import com.chargebee.security.SpringSecurityUser;
+import com.event.dto.AuthorisedUser;
+import com.event.dto.Credentials;
+import com.event.security.JwtTokenProvider;
+import com.event.security.SpringSecurityUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -23,7 +22,7 @@ public class AuthController {
     AuthenticationManager authenticationManager;
 
 
-    @PostMapping(value = "auth/login")
+    @PostMapping(value = "/auth/login")
     public ResponseEntity login(@RequestBody Credentials credentials){
         UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(credentials.getUserName(), credentials.getPassword());
         Authentication authenticationResult = authenticationManager.authenticate(authentication);

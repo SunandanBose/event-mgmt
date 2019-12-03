@@ -1,4 +1,4 @@
-package com.chargebee.security;
+package com.event.security;
 
 import java.util.Collection;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.chargebee.model.User;
+import com.event.model.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class SpringSecurityUser implements UserDetails{

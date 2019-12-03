@@ -1,12 +1,10 @@
-package com.chargebee.controller;
+package com.event.controller;
 
-import com.chargebee.dto.EventDto;
-import com.chargebee.model.Blog;
-import com.chargebee.model.Event;
-import com.chargebee.model.User;
-import com.chargebee.service.EventService;
-import com.chargebee.service.UserEventService;
-import com.chargebee.service.UserService;
+import com.event.dto.EventDto;
+import com.event.model.Event;
+import com.event.model.User;
+import com.event.service.EventService;
+import com.event.service.UserEventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

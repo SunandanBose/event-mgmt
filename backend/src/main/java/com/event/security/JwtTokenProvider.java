@@ -1,4 +1,4 @@
-package com.chargebee.security;
+package com.event.security;
 
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;

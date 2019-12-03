@@ -1,4 +1,4 @@
-package com.chargebee.model;
+package com.event.model;
 
 import javax.persistence.*;
 

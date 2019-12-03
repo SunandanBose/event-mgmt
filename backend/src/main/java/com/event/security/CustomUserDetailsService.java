@@ -1,7 +1,7 @@
-package com.chargebee.security;
+package com.event.security;
 
-import com.chargebee.model.User;
-import com.chargebee.repository.UserRepository;
+import com.event.model.User;
+import com.event.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

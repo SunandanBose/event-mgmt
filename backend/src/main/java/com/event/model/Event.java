@@ -1,6 +1,6 @@
-package com.chargebee.model;
+package com.event.model;
 
-import com.chargebee.dto.EventDto;
+import com.event.dto.EventDto;
 
 import javax.persistence.*;
 
