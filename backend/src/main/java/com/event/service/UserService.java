@@ -24,6 +24,7 @@ public class UserService {
     public User create(User user) {
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
+        user.setRole("ADMIN");//hardcoding role
         return userRepository.save(user);
     }
 
