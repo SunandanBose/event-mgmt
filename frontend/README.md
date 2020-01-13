@@ -36,7 +36,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 - Page for a blog --done
     Blog bottom reaction (Low scope)
 
-
+Write initialize migration script for user creation
 
  Bug
 - After Logging In the Home Screen doesn't show  --completed
