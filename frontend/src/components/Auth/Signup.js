@@ -22,6 +22,7 @@ export default class SignUp extends Component {
     
     register(event){
         event.preventDefault();
+		console.log(this.state.user);
 		fetch('http://localhost:8080/users/', {
 			method: 'POST',
 			mode: "cors",
@@ -38,7 +39,7 @@ export default class SignUp extends Component {
         return (
             <div className={(this.props.loggedInUser !== undefined) ? "hide" : ""}>
 				<form onSubmit={this.register} method="POST">
-					<FormField elementName="Name" label="Name :" placeholder="Enter Name"
+					<FormField elementName="userName" label="Name :" placeholder="Enter Name"
 							   handleChange={this.handleChange}/>
 					<FormField elementName="email" label="email :" placeholder="Enter email"
 							   handleChange={this.handleChange}/>
