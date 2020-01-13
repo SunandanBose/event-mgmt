@@ -22,7 +22,16 @@ export default class SignUp extends Component {
     
     register(event){
         event.preventDefault();
-        console.log(this.state.user);
+		fetch('http://localhost:8080/users/', {
+			method: 'POST',
+			mode: "cors",
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(this.state.user),
+		})
+        console.log('User created successfully');
     }
 
     render() {

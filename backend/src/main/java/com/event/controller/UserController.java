@@ -21,7 +21,7 @@ public class UserController {
 	@Autowired
 	private EventService eventService;
 
-	@PostMapping(value = "/signUp")
+	@PostMapping(value = "/users")
 	public User create(@RequestBody User user){
 		return userService.create(user);
 	}
