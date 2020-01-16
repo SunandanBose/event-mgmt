@@ -1,5 +1,4 @@
 import React,{Component} from "react";
-import Event from "./Event";
 import "../../css/index.css";
 
 
