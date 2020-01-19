@@ -31,7 +31,12 @@ export default class SignUp extends Component {
 				'Content-Type': 'application/json'
             },
             body: JSON.stringify(this.state.user),
-		})
+		}).then(res => res.json())
+		.then(
+			(json) => {
+				alert("Sucessfully Registered!!!");
+				this.props.history.push('/');
+			});
         console.log('User created successfully');
     }
 
