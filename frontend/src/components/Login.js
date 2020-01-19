@@ -20,8 +20,7 @@ class Login extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			user: {},
-			className: ""
+			user: {}
 		};
 
 		this.register = this.register.bind(this);
@@ -41,7 +40,8 @@ class Login extends React.Component {
 			.then(json => {
 				console.log("Successfully logged in");
 				this.props.currentUser(json);
-				this.setState({users: json, className: "hide"})
+				//this.setState({users: json})
+				//TODO: find out where history is coming from
 				this.props.history.push('/');
 			});
 	}
