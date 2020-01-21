@@ -20,7 +20,7 @@ class CreateBlog extends Component {
 		this.handleChange = this.handleChange.bind(this);
 		this.submitCreateBlog = this.submitCreateBlog.bind(this);
 		this.onDrop = this.onDrop.bind(this);
-		this.uploadImageToServer = this.uploadImageToServer.bind(this);
+		//this.uploadImageToServer = this.uploadImageToServer.bind(this);
 	}
 	handleChange(e) {
 		const target = e.target;
@@ -34,43 +34,28 @@ class CreateBlog extends Component {
 	submitCreateBlog(event){
 		event.preventDefault();
 		console.log('event object ' + JSON.stringify(this.state.event));
+		const formData = new FormData();
+		formData.append('file',this.state.pictures[0]);
+		formData.append('event', JSON.stringify(this.state.event));
+		//formData.append('event', JSON.stringify({"id":"5"}));
 		fetch('http://localhost:8080/blogs', {
 			method: 'POST',
 			mode: "cors",
 			headers: {
-				'Accept': 'form',
-				'Content-Type': 'application/json',
+				//'Accept': 'form',
+				//'Content-Type': 'multipart/form-data',
 				'Bearer' : this.props.token
 			},
-			body: JSON.stringify(this.state.event),
-		})
-		.then(() => {
-			alert("Successfully Created!!!")
-			
-		})
-		.catch(() => alert("Sorry Better Luck Next Time!!!"));
-	}
-
-	uploadImageToServer(event){
-		event.preventDefault();
-		const formData = new FormData();
-		formData.append('file',this.state.pictures[0]);
-		console.log('event object ' + JSON.stringify(this.state.event));
-		fetch('http://localhost:8080/upload', {
-			method: 'POST',
-			mode: "cors",
-			headers: {
-				'Bearer' : this.props.token
-			},
-
 			body: formData,
 		})
 		.then((res) => {
-			console.log(res);
-			alert("Successfully Created!!!");
+
+			console.log("Successfully Created!!!"+JSON.stringify(res))
+			
 		})
-		.catch(() => alert("Sorry Better Luck Next Time!!!"));
+		.catch(() => console.log("Sorry Better Luck Next Time!!!"));
 	}
+
 	onDrop(picture) {
 			console.log(picture);
 			this.setState({
