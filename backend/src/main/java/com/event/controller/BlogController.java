@@ -16,6 +16,8 @@ import org.springframework.http.MediaType;
 
 import java.io.IOException;
 import java.util.List;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 
 @RestController
 public class BlogController {
@@ -30,6 +32,8 @@ public class BlogController {
     private String createNewBlog(@RequestParam("event") String model, @RequestParam(value = "file", required = false) MultipartFile file) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         Blog blog = mapper.readValue(model, Blog.class);
+        UserDetails user =(UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        System.out.println(user.getUsername());
         return "Successful";
         //return blogService.create(eventWithFile);
         //return blogService.createBlog(blog);
@@ -45,6 +49,7 @@ public class BlogController {
     private void uploadImage(@RequestParam MultipartFile file){
         System.out.println("Logger : " + file.getContentType());
         System.out.println("Logger1 : " + file.getOriginalFilename());
-        imageService.save(file);
+
+        //imageService.save(file);
     }
 }
