@@ -32,11 +32,8 @@ public class BlogController {
     private String createNewBlog(@RequestParam("event") String model, @RequestParam(value = "file", required = false) MultipartFile file) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         Blog blog = mapper.readValue(model, Blog.class);
-        UserDetails user =(UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        System.out.println(user.getUsername());
+        blogService.create(new EventWithFile(file, blog));
         return "Successful";
-        //return blogService.create(eventWithFile);
-        //return blogService.createBlog(blog);
     }
     //TODO : Donot return objects return response Entity
     @GetMapping(value = "/blogs")

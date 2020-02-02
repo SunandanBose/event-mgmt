@@ -15,6 +15,9 @@ public class BlogService {
     @Autowired
     private BlogRepository blogRepository;
 
+    @Autowired
+    private ImageService imageService;
+
     public String createBlog(Blog blog){
         blogRepository.save(blog);
         return "Created Successfully!!!";
@@ -26,6 +29,8 @@ public class BlogService {
     }
 
     public String create(EventWithFile eventWithFile) {
+        blogRepository.save(eventWithFile.getBlog());
+        imageService.store(eventWithFile.getFile());
         System.out.println(eventWithFile.getFile().getOriginalFilename());
         return "Successfull";
 
