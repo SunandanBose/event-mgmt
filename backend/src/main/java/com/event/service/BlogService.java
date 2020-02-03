@@ -6,6 +6,7 @@ import com.event.repository.BlogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import java.util.List;
 
 @Service
@@ -29,8 +30,10 @@ public class BlogService {
     }
 
     public String create(EventWithFile eventWithFile) {
-        blogRepository.save(eventWithFile.getBlog());
-        imageService.store(eventWithFile.getFile());
+        Blog blog = blogRepository.save(eventWithFile.getBlog());
+        String originalFileName = eventWithFile.getFile().getOriginalFilename();
+        String newFileName = (String.valueOf(blog.getId())+originalFileName.substring(originalFileName.length()-4,originalFileName.length()));
+        imageService.store(eventWithFile.getFile(),newFileName);
         System.out.println(eventWithFile.getFile().getOriginalFilename());
         return "Successfull";
 
