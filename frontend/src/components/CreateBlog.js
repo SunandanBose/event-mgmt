@@ -80,7 +80,6 @@ class CreateBlog extends Component {
 					withPreview={true}
             	/>
 				<button name="Submit" onClick={this.submitCreateBlog}>Submit</button>
-				<button name="Upload" onClick={this.uploadImageToServer}>Upload</button>
 			</div>
 		);
 	}
