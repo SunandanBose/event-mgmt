@@ -36,6 +36,8 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 - Page for a blog --done
     Blog bottom reaction (Low scope)
 
+
+
 Write initialize migration script for user creation
 
  Bug
@@ -54,10 +56,20 @@ Write initialize migration script for user creation
 - Feature to Upload Video
 - Improve UI of Dropdown
 
+store images in multiple locations
+
+frontend
+display images in my blog
+Implement tag on each blog
+Navbar selection highlight not working
+blog tile should display image
 
 Infra changes
 - Dockerize backend and frontend
 - Deploy to AWS
+
+
+
     
 ## Open questions
 - How should we structure a component?
