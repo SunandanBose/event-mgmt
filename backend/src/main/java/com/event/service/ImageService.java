@@ -20,13 +20,11 @@ public class ImageService {
     }
 
     public void store(MultipartFile file, String newFile) {
-        String filename = StringUtils.cleanPath(file.getOriginalFilename());
-        filename = newFile;
         try {
             if (file.isEmpty()) {
                 throw new IOException("Failed to store empty file " + file.getOriginalFilename());
             }
-            Files.copy(file.getInputStream(), this.rootLocation.resolve(filename));
+            Files.copy(file.getInputStream(), this.rootLocation.resolve(newFile));
         } catch (IOException e) {
             System.out.println("Failed to store file " + file.getOriginalFilename());
             e.printStackTrace();
