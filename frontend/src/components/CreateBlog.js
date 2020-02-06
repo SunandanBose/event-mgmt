@@ -71,7 +71,9 @@ class CreateBlog extends Component {
 	 onEditorStateChange = (editorState) => {
 		this.setState({
 		  editorState,
+		  event: {...this.state.event, body: editorState.text }
 		});
+		console.log(JSON.stringify(this.state.event));
 	  };	
 
 	render() {
@@ -82,6 +84,8 @@ class CreateBlog extends Component {
 				<Editor
 					editorState={this.state.editorState}
 					onEditorStateChange={this.onEditorStateChange}
+					wrapperClassName="demo-wrapper"
+        			editorClassName="demo-editor"
 				/>
 				<ImageUploader
                 	withIcon={true}

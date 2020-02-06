@@ -95,3 +95,7 @@ body {
 .hide{
     display : none !important;
 }
+
+.rdw-editor-wrapper {
+    border:1px solid;
+}
