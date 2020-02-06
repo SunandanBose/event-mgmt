@@ -71,16 +71,15 @@ class CreateBlog extends Component {
 	 onEditorStateChange = (editorState) => {
 		this.setState({
 		  editorState,
-		  event: {...this.state.event, body: editorState.text }
+		  event: {...this.state.event, body: editorState.getCurrentContent().getPlainText() }
 		});
-		console.log(JSON.stringify(this.state.event));
-	  };	
+	};	
 
 	render() {
 		return (
 			<div>
 				<TextField row="2" column="60" id="title" handleChange={this.handleChange} label="Title"/>
-				<TextField row="10" column="60" id ="body" handleChange={this.handleChange} label="Body"/>
+				<h2>Body</h2>
 				<Editor
 					editorState={this.state.editorState}
 					onEditorStateChange={this.onEditorStateChange}
@@ -102,3 +101,4 @@ class CreateBlog extends Component {
 }
 
 export default connect(mapStateToProps,null)(CreateBlog);
+

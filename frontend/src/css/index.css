@@ -98,4 +98,10 @@ body {
 
 .rdw-editor-wrapper {
     border:1px solid;
+    width: 90%;
 }
+
+.rdw-editor-toolbar {
+    border-bottom: 1px solid;
+}
+
