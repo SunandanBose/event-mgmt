@@ -59,6 +59,7 @@ Write initialize migration script for user creation
 store images in multiple locations
 
 frontend
+https://stackoverflow.com/questions/51180361/react-draft-wysiwyg-render-saved-content-to-update
 display images in my blog
 Implement tag on each blog
 Navbar selection highlight not working
