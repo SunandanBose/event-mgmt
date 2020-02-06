@@ -1,10 +1,11 @@
 import React, {Component} from "react";
 import TextField from "./child/TextField";
 import {connect} from "react-redux";
-import PropTypes from 'prop-types';
-import {events_participated} from "../actions";
+import { EditorState } from 'draft-js';
 import ImageUploader from 'react-images-upload';
-
+import { Editor } from 'react-draft-wysiwyg';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+				
 const mapStateToProps = (state) => {
 	return {token : state.currentUser.token}
 }
@@ -15,7 +16,8 @@ class CreateBlog extends Component {
 		super();
 		this.state={
 			event : {},
-			pictures : []
+			pictures : [],
+			editorState: EditorState.createEmpty(),
 		}
 		this.handleChange = this.handleChange.bind(this);
 		this.submitCreateBlog = this.submitCreateBlog.bind(this);
@@ -66,11 +68,21 @@ class CreateBlog extends Component {
 			});
 	 }
 
+	 onEditorStateChange = (editorState) => {
+		this.setState({
+		  editorState,
+		});
+	  };	
+
 	render() {
 		return (
 			<div>
 				<TextField row="2" column="60" id="title" handleChange={this.handleChange} label="Title"/>
 				<TextField row="10" column="60" id ="body" handleChange={this.handleChange} label="Body"/>
+				<Editor
+					editorState={this.state.editorState}
+					onEditorStateChange={this.onEditorStateChange}
+				/>
 				<ImageUploader
                 	withIcon={true}
                 	buttonText='Choose images'
