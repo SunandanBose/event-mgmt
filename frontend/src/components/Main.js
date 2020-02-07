@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {HashRouter, Route, Switch} from "react-router-dom";
-
+import {connect} from "react-redux";
 import Home from "./Home";
 import Blogs from "./Blogs";
 import Registration from "./Registration";
@@ -11,33 +11,29 @@ import CreateBlog from "./CreateBlog";
 import Blog from "./Blog";
 import Login from "./Login";
 import SignUp from "./Auth/Signup";
+import {currentUser} from "../actions";
 
-export default class Main extends Component {
+const mapDispatchToProps = dispatch => {
+	return {
+		currentUser: user => dispatch(currentUser(user))
+	};
+};
+const mapStateToProps = (state) => {
+	return {
+		loggedInUser: state.currentUser
+	}
+};
+
+class Main extends Component {
 	constructor() {
 		super();
 		this.state = {
-			users: [],
+			users: {},
 			currentUser: ""
 		};
 		this.setActiveUser = this.setActiveUser.bind(this);
 	}
 
-	componentDidMount() {
-		fetch('http://localhost:8080/users', {
-			method: 'GET',
-			mode: "cors",
-			headers: {
-				'Accept': 'application/json',
-				'Content-Type': 'application/json',
-				'Bearer': 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNTQ2NjkyNDE3LCJleHAiOjE1NDcyOTcyMTd9.N4CXg98Pjehb-wK0OghCM8u7HR52sV2ELV9PEGFZ6KzvrnQzrb56C7VL4hg9tBfuYox2eSabI7mnLyEDEOQg4g'
-			},
-
-		}).then(res => res.json())
-			.then(json => {
-				console.log(json);
-				this.setState({users: json})
-			})
-	}
 
 
 	setActiveUser(e) {
@@ -74,3 +70,6 @@ export default class Main extends Component {
 		);
 	}
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main)
+
