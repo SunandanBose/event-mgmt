@@ -2,6 +2,7 @@ import React from "react";
 
 export default class DropDown extends React.Component{
     logOut(){
+        localStorage.clear();
         window.location.reload();
     }
 

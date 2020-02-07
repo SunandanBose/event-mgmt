@@ -40,6 +40,9 @@ class Login extends React.Component {
 			.then(json => {
 				console.log("Successfully logged in");
 				this.props.currentUser(json);
+				localStorage.setItem('currentUser', json)
+				localStorage.setItem('user', JSON.stringify(this.state.user))
+				console.log(this.state.user)
 				//this.setState({users: json})
 				//TODO: find out where history is coming from
 				this.props.history.push('/');
