@@ -18,23 +18,21 @@ const mapDispatchToProps = dispatch => {
 		currentUser: user => dispatch(currentUser(user))
 	};
 };
-const mapStateToProps = (state) => {
-	return {
-		loggedInUser: state.currentUser
-	}
-};
 
 class Main extends Component {
 	constructor() {
 		super();
 		this.state = {
-			users: {},
 			currentUser: ""
 		};
 		this.setActiveUser = this.setActiveUser.bind(this);
 	}
 
-
+	componentDidMount(){
+		if(localStorage.getItem('currentUser')){
+			this.props.currentUser(JSON.parse(localStorage.getItem('currentUser')));
+		}
+	}
 
 	setActiveUser(e) {
 		const target = e.target;
@@ -71,5 +69,5 @@ class Main extends Component {
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main)
+export default connect(null, mapDispatchToProps)(Main)
 

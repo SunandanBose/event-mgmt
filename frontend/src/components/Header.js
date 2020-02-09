@@ -1,8 +1,7 @@
 import React from "react"
 import "../css/header.css"
-import HeaderLink from "./child/HeaderLink";
 import {connect} from "react-redux";
-import DropDown from "./child/DropDown";
+import UserInfoDropDown from "./child/UserInfoDropDown";
 import NavBarElement from "./child/NavBarElement";
 
 const mapStateToProps = (state) => {
@@ -37,7 +36,7 @@ class Header extends React.Component {
 						this.props.loggedInUser && 
 						<div className="authorization heading">
 							Hi {this.props.loggedInUser.user.userName}
-							<DropDown DropDownClass="dropDownContent" />
+							<UserInfoDropDown DropDownClass="dropDownContent" />
 						</div>
 					}
 

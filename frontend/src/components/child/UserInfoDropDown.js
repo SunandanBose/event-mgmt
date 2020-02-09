@@ -1,6 +1,7 @@
 import React from "react";
 
-export default class DropDown extends React.Component{
+
+export default class UserInfoDropDown extends React.Component{
     logOut(){
         localStorage.clear();
         window.location.reload();
@@ -9,8 +10,8 @@ export default class DropDown extends React.Component{
     render(){
         return(
             <div className={this.props.DropDownClass}>
-                <a href="#">User Info</a>
-                <a href="#" onClick={this.logOut}>Logout</a>
+                <button>User Info</button>
+                <button onClick={this.logOut}>Logout</button>
             </div>
         )
     }
