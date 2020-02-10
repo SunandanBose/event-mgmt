@@ -29,8 +29,8 @@ class Main extends Component {
 	}
 
 	componentDidMount(){
-		if(localStorage.getItem('currentUser')){
-			this.props.currentUser(JSON.parse(localStorage.getItem('currentUser')));
+		if(sessionStorage.getItem('currentUser')){
+			this.props.currentUser(JSON.parse(sessionStorage.getItem('currentUser')));
 		}
 	}
 

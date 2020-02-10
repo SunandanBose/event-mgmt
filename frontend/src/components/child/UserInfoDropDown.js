@@ -3,7 +3,7 @@ import React from "react";
 
 export default class UserInfoDropDown extends React.Component{
     logOut(){
-        localStorage.clear();
+        sessionStorage.clear();
         window.location.reload();
     }
 
