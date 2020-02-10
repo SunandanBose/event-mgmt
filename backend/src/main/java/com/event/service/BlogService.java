@@ -4,9 +4,15 @@ import com.event.model.Blog;
 import com.event.model.EventWithFile;
 import com.event.repository.BlogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.util.List;
 
 @Service
@@ -37,5 +43,20 @@ public class BlogService {
         System.out.println(eventWithFile.getFile().getOriginalFilename());
         return "Successfull";
 
+    }
+
+    public ResponseEntity<Resource> fetchImage(HttpServletRequest request) {
+        ResponseEntity<Resource> response = null;
+        try {
+            Resource resource = imageService.loadFileAsResource(String.valueOf(1));
+            String contentType = request.getServletContext().getMimeType(resource.getFile().getAbsolutePath());
+            response = ResponseEntity.ok()
+                    .contentType(MediaType.parseMediaType(contentType))
+                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
+                    .body(resource);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return response;
     }
 }

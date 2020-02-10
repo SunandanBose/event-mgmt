@@ -6,6 +6,8 @@ import com.event.service.BlogService;
 import com.event.service.ImageService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +20,8 @@ import java.io.IOException;
 import java.util.List;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import javax.servlet.http.HttpServletRequest;
 
 @RestController
 public class BlogController {
@@ -42,11 +46,9 @@ public class BlogController {
         return blogService.getBlogs();
     }
 
-    @PostMapping(value = "/upload")
-    private void uploadImage(@RequestParam MultipartFile file){
-        System.out.println("Logger : " + file.getContentType());
-        System.out.println("Logger1 : " + file.getOriginalFilename());
-
+    @GetMapping(value = "/image")
+    private ResponseEntity<Resource> uploadImage(HttpServletRequest request){
+        return blogService.fetchImage(request);
         //imageService.save(file);
     }
 }

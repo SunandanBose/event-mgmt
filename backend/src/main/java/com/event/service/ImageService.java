@@ -1,6 +1,10 @@
 package com.event.service;
 import com.event.properties.StorageProperties;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
+
+import java.net.MalformedURLException;
 import java.nio.file.Path;
 
 import org.springframework.util.StringUtils;
@@ -30,4 +34,19 @@ public class ImageService {
             e.printStackTrace();
         }
     }
+
+    public Resource loadFileAsResource(String fileName) throws IOException {
+        try {
+            Path filePath = this.rootLocation.resolve(fileName+".png").normalize();
+            Resource resource = new UrlResource(filePath.toUri());
+            if(resource.exists()) {
+                return resource;
+            } else {
+                throw new IOException("File not found " + fileName);
+            }
+        } catch (MalformedURLException ex) {
+            throw new IOException("File not found " + fileName, ex);
+        }
+    }
+
 }
