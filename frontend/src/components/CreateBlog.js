@@ -54,11 +54,10 @@ class CreateBlog extends Component {
 
 				
 			console.log("Successfully Created!!!" + JSON.stringify(res))
-			
+			this.props.history.push('/events');
 		})
 		.catch(() => console.log("Sorry Better Luck Next Time!!!"));
-		console.log(this.props.history);
-		this.props.history.push('/events');
+		
 	}
 
 	onDrop(picture) {
