@@ -15,7 +15,7 @@ export default class ErrorBoundary extends React.Component{
       }
       render() {
         if (this.state.errorInfo) {
-             window.location.href="http://localhost:3000/login/"
+             window.location.href="http://localhost:3000/"
           return (
             <div>
               <h2>Something went wrong.</h2>
