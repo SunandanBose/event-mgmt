@@ -45,10 +45,10 @@ public class BlogService {
 
     }
 
-    public ResponseEntity<Resource> fetchImage(HttpServletRequest request) {
+    public ResponseEntity<Resource> fetchImage(String fileName,HttpServletRequest request) {
         ResponseEntity<Resource> response = null;
         try {
-            Resource resource = imageService.loadFileAsResource(String.valueOf(1));
+            Resource resource = imageService.loadFileAsResource(fileName);
             String contentType = request.getServletContext().getMimeType(resource.getFile().getAbsolutePath());
             response = ResponseEntity.ok()
                     .contentType(MediaType.parseMediaType(contentType))
