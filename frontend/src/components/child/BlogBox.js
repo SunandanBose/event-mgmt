@@ -9,9 +9,12 @@ class BlogBox extends React.Component{
             <div className="blog box" onClick={() => this.props.history.push({
                 pathname: '/blog',
                 event : {
+                            id : this.props.id,
                             title : this.props.title,
-                            body : this.props.body
-                        }
+                            body : this.props.body,
+                            token : this.props.token
+                        },     
+
             })}>
                 <h1>{this.props.title}</h1>
                 <h4>{this.props.body}</h4>

@@ -33,7 +33,7 @@ class Blogs extends Component {
 		}).then(res => res.json())
 			
 			.then(json => {
-				console.log("inside");
+				console.log(JSON.stringify(json));
 				this.updateBlogs(json);
 			})
 			.catch(e => alert("You currently don't have any events"));
@@ -50,7 +50,7 @@ class Blogs extends Component {
 			<div>
 				<h1>List of Blogs</h1>
 				{this.state.events.map((event) =>
-					<BlogBox title={event.title} body={event.body} />
+					<BlogBox id={event.id} title={event.title} body={event.body} {...this.props}/>
 				)}
 
 
