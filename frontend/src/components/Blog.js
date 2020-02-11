@@ -9,20 +9,8 @@ export default class Blog extends React.Component{
     }
 
     componentDidMount() {
-		fetch('http://localhost:8080/image/'+this.props.location.event.id, {
-			method: 'GET',
-			mode: "cors",
-			headers: {
-				//'Accept': 'application/json',
-				//'Content-Type': 'application/json',
-				'Bearer' : this.props.token
-			},
-        })
-        .then((res) => {
-
-            this.setState({picture : res.body});
-		})
-			.catch(e => alert("You currently don't have any events"));
+        const imageUrl = 'http://localhost:8080/image/'+this.props.location.event.id;
+		this.setState({ picture: imageUrl })
 	}
 
     render(){
