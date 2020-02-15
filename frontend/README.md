@@ -45,7 +45,7 @@ Write initialize migration script for user creation
 
 - Links should be shown as hand sumbol(My Blog Page)  --completed
 
-- Current Page is not selected in the Nav Bar
+- Current Page is not selected in the Nav Bar --completed
 
  New Features
 
@@ -62,7 +62,7 @@ frontend
 https://stackoverflow.com/questions/51180361/react-draft-wysiwyg-render-saved-content-to-update
 display images in my blog
 Implement tag on each blog
-Navbar selection highlight not working
+Navbar selection highlight not working --completed
 blog tile should display image
 
 Infra changes
@@ -75,9 +75,12 @@ Infra changes
 ## Open questions
 - How should we structure a component?
 - Why is there space on top of my header?
+- Service discovery - consul
 - https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html
 - Closure in JavaScript
 - Error Boundary React 16``
+
+--
 
 
 
