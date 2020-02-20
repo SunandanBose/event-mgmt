@@ -2,6 +2,7 @@ import React from "react"
 
 import {connect} from "react-redux";
 import FormField from "./child/FormField";
+import {hostname} from "../constants/properties"
 
 class Registration extends React.Component {
 	constructor(props) {
@@ -18,7 +19,7 @@ class Registration extends React.Component {
 	async register(event) {
 		event.preventDefault();
 		console.log('A name was submitted: ' + JSON.stringify(this.state.event));
-		await fetch('http://localhost:8080/events', {
+		await fetch('http://'+hostname+':8080/events', {
 			method: (event.id) ? 'PUT' : 'POST',
 			mode: "cors",
 			headers: {

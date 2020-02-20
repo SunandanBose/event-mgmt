@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import "../../css/index.css";
+import {hostname} from "../../constants/properties"
 
 export default class Event extends Component {
 
@@ -10,7 +11,7 @@ export default class Event extends Component {
 	participate() {
 		//	/users/{id}/event{eventId}
 		let currentUser = this.props.currentUser || 2;
-		fetch('http://localhost:8080/users/' + currentUser + '/events/' + this.props.data.id, {
+		fetch('http://'+hostname+':8080/users/' + currentUser + '/events/' + this.props.data.id, {
 			method: 'POST',
 			mode: "cors",
 			headers: {

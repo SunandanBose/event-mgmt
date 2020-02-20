@@ -5,6 +5,7 @@ import { EditorState } from 'draft-js';
 import ImageUploader from 'react-images-upload';
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import {hostname} from "../constants/properties"
 				
 const mapStateToProps = (state) => {
 	return {token : state.currentUser.token}
@@ -40,7 +41,7 @@ class CreateBlog extends Component {
 		formData.append('file',this.state.pictures[0]);
 		formData.append('event', JSON.stringify(this.state.event));
 		//formData.append('event', JSON.stringify({"id":"5"}));
-		fetch('http://localhost:8080/blogs', {
+		fetch('http://'+hostname+':8080/blogs', {
 			method: 'POST',
 			mode: "cors",
 			headers: {

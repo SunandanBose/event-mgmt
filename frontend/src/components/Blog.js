@@ -1,4 +1,5 @@
 import React from "react";
+import {hostname} from "../constants/properties"
 
 export default class Blog extends React.Component{
     constructor(props){
@@ -9,7 +10,7 @@ export default class Blog extends React.Component{
     }
 
     componentDidMount() {
-        const imageUrl = 'http://localhost:8080/image/'+this.props.location.event.id;
+        const imageUrl = 'http://'+hostname+':8080/image/'+this.props.location.event.id;
 		this.setState({ picture: imageUrl })
 	}
 

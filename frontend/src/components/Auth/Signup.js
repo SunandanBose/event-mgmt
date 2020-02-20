@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FormField from '../child/FormField'
+import {hostname} from "../../constants/properties"
 
 export default class SignUp extends Component {
 
@@ -23,7 +24,7 @@ export default class SignUp extends Component {
     register(event){
         event.preventDefault();
 		console.log(this.state.user);
-		fetch('http://localhost:8080/users/', {
+		fetch('http://'+hostname+':8080/users/', {
 			method: 'POST',
 			mode: "cors",
 			headers: {

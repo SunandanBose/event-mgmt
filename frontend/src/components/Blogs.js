@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import BlogBox from "./child/BlogBox";
+import {hostname} from "../constants/properties"
 
 const mapStateToProps = (state) => {
 	return {
@@ -21,7 +22,7 @@ class Blogs extends Component {
 
 	componentDidMount() {
 		//let currentUserId = this.props.currentUser.user.id;
-		fetch('http://localhost:8080/blogs', {
+		fetch('http://'+hostname+':8080/blogs', {
 			method: 'GET',
 			mode: "cors",
 			headers: {

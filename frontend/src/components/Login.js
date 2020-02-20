@@ -3,6 +3,7 @@ import FormField from './child/FormField'
 
 import {currentUser} from "../actions";
 import {connect} from "react-redux";
+import {hostname} from "../constants/properties"
 
 const mapDispatchToProps = dispatch => {
 	return {
@@ -29,7 +30,7 @@ class Login extends React.Component {
 
 	async register(event) {
 		event.preventDefault();
-		fetch('http://localhost:8080/auth/login', {
+		fetch('http://'+hostname+':8080/auth/login', {
 			method: 'POST',
 			mode: "cors",
 			headers: {
