@@ -13,8 +13,10 @@ public class Blog {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    @Column(length = 1000)
     private String title;
 
+    @Column(columnDefinition = "MEDIUMTEXT")
     private String body;
 
     private Date createdTime;

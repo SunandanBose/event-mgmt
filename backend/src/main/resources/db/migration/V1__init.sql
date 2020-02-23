@@ -24,9 +24,9 @@ DROP TABLE IF EXISTS `blog`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `blog` (
   `id` int(11) NOT NULL,
-  `body` varchar(255) DEFAULT NULL,
+  `body` MEDIUMTEXT DEFAULT NULL,
   `created_time` datetime DEFAULT NULL,
-  `title` varchar(255) DEFAULT NULL,
+  `title` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
