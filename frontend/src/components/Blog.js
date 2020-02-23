@@ -1,5 +1,6 @@
 import React from "react";
-import {hostname} from "../constants/properties"
+import {hostname} from "../constants/properties";
+import "../css/blog.css"
 
 export default class Blog extends React.Component{
     constructor(props){
@@ -17,9 +18,9 @@ export default class Blog extends React.Component{
     render(){
         return(
             <div>
-                <img src={this.state.picture} alt="blog"/>
                 <h1>{this.props.location.event.title}</h1>
                 <h3>{this.props.location.event.body}</h3>
+                <img className="image" src={this.state.picture} alt="blog"/>
             </div>
         )
     }
