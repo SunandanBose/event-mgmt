@@ -37,15 +37,16 @@ public class BlogService {
 
     public String create(EventWithFile eventWithFile) {
         Blog blog = blogRepository.save(eventWithFile.getBlog());
-        String originalFileName = eventWithFile.getFile().getOriginalFilename();
-        String newFileName = (String.valueOf(blog.getId())+originalFileName.substring(originalFileName.length()-4,originalFileName.length()));
-        imageService.store(eventWithFile.getFile(),newFileName);
-        System.out.println(eventWithFile.getFile().getOriginalFilename());
+        if(eventWithFile.getFile()!=null) {
+            String originalFileName = eventWithFile.getFile().getOriginalFilename();
+            String newFileName = (String.valueOf(blog.getId()) + originalFileName.substring(originalFileName.length() - 4, originalFileName.length()));
+            imageService.store(eventWithFile.getFile(), newFileName);
+        }
         return "Successfull";
 
     }
 
-    public ResponseEntity<Resource> fetchImage(String fileName,HttpServletRequest request) {
+    public ResponseEntity<Resource> fetchImage(String fileName,HttpServletRequest request){
         ResponseEntity<Resource> response = null;
         try {
             Resource resource = imageService.loadFileAsResource(fileName);
@@ -56,6 +57,18 @@ public class BlogService {
                     .body(resource);
         } catch (IOException e) {
             e.printStackTrace();
+            try {
+                Resource resource = imageService.loadFileAsResource("default");
+                String contentType = request.getServletContext().getMimeType(resource.getFile().getAbsolutePath());
+                response = ResponseEntity.ok()
+                        .contentType(MediaType.parseMediaType(contentType))
+                        .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
+                        .body(resource);
+            }
+            catch (IOException ex){
+                System.out.println("default image also not available");
+                ex.printStackTrace();
+            }
         }
         return response;
     }
