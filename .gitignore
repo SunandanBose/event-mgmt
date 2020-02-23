@@ -4,6 +4,8 @@
 /build/
 backend/build/
 !gradle/wrapper/gradle-wrapper.jar
+/.vscode/
+.vscode
 
 ### STS ###
 .apt_generated
