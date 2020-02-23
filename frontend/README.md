@@ -65,6 +65,8 @@ Implement tag on each blog
 Navbar selection highlight not working --completed
 blog tile should display image
 
+- fetch call unable to identify spring server ip address
+
 Infra changes
 - Dockerize backend and frontend
 - Deploy to AWS
@@ -79,6 +81,7 @@ Infra changes
 - https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html
 - Closure in JavaScript
 - Error Boundary React 16``
+
 
 --
 
