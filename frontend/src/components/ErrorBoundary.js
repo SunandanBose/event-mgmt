@@ -1,4 +1,5 @@
 import React from "react";
+import {hostname} from "../constants/properties"
 
 export default class ErrorBoundary extends React.Component{
     state = { error: null, errorInfo: null };
@@ -15,7 +16,7 @@ export default class ErrorBoundary extends React.Component{
       }
       render() {
         if (this.state.errorInfo) {
-             window.location.href="http://localhost:3000/"
+             window.location.href="http://"+hostname+":3000"
           return (
             <div>
               <h2>Something went wrong.</h2>
