@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import TextField from "./child/TextField";
 import {connect} from "react-redux";
-import { EditorState } from 'draft-js';
+import { EditorState, convertToRaw } from 'draft-js';
 import ImageUploader from 'react-images-upload';
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
@@ -23,7 +23,6 @@ class CreateBlog extends Component {
 		this.handleChange = this.handleChange.bind(this);
 		this.submitCreateBlog = this.submitCreateBlog.bind(this);
 		this.onDrop = this.onDrop.bind(this);
-		//this.uploadImageToServer = this.uploadImageToServer.bind(this);
 	}
 	handleChange(e) {
 		const target = e.target;
@@ -52,8 +51,6 @@ class CreateBlog extends Component {
 			body: formData,
 		})
 		.then((res) => {
-
-				
 			console.log("Successfully Created!!!" + JSON.stringify(res))
 			this.props.history.push('/events');
 		})
@@ -69,9 +66,12 @@ class CreateBlog extends Component {
 	 }
 
 	 onEditorStateChange = (editorState) => {
+		const blocks = convertToRaw(editorState.getCurrentContent()).blocks;
+		const value = blocks.map(block => (!block.text.trim() && '\n') || block.text).join('\n');
+		console.log("value : "+ value);
 		this.setState({
 		  editorState,
-		  event: {...this.state.event, body: editorState.getCurrentContent().getPlainText() }
+		  event: {...this.state.event, body: value }
 		});
 	};	
 
