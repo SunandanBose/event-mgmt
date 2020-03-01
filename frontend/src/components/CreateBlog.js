@@ -1,9 +1,10 @@
 import React, {Component} from "react";
 import TextField from "./child/TextField";
 import {connect} from "react-redux";
-import { EditorState, convertToRaw } from 'draft-js';
+import { EditorState} from 'draft-js';
 import ImageUploader from 'react-images-upload';
 import { Editor } from 'react-draft-wysiwyg';
+import {stateToHTML} from 'draft-js-export-html';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import {hostname} from "../constants/properties"
 				
@@ -66,12 +67,9 @@ class CreateBlog extends Component {
 	 }
 
 	 onEditorStateChange = (editorState) => {
-		const blocks = convertToRaw(editorState.getCurrentContent()).blocks;
-		const value = blocks.map(block => (!block.text.trim() && '\n') || block.text).join('\n');
-		console.log("value : "+ value);
 		this.setState({
 		  editorState,
-		  event: {...this.state.event, body: value }
+		  event: {...this.state.event, body: stateToHTML(editorState.getCurrentContent()) }
 		});
 	};	
 
