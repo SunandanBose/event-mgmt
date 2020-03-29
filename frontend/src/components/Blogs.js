@@ -21,7 +21,6 @@ class Blogs extends Component {
 	}
 
 	componentDidMount() {
-		//let currentUserId = this.props.currentUser.user.id;
 		fetch('http://'+hostname+':8080/blogs', {
 			method: 'GET',
 			mode: "cors",
@@ -34,7 +33,6 @@ class Blogs extends Component {
 		}).then(res => res.json())
 			
 			.then(json => {
-				console.log(JSON.stringify(json));
 				this.updateBlogs(json);
 			})
 			.catch(e => alert("You currently don't have any events"));
@@ -46,7 +44,6 @@ class Blogs extends Component {
 	}
 
 	render() {
-		console.log(this.state.events);
 		return (
 			<div>
 				<h1>List of Blogs</h1>

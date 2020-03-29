@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.nio.file.Paths;
 import java.nio.file.Files;
 import java.io.IOException;
+import java.util.logging.Logger;
 
 @Service
 public class ImageService {
@@ -49,4 +50,12 @@ public class ImageService {
         }
     }
 
+    public void delete(Integer id){
+        try {
+            Path filePath = this.rootLocation.resolve(String.valueOf(id)+".png").normalize();
+            Files.deleteIfExists(filePath);
+        } catch (IOException e) {
+            Logger.getLogger(getClass().getName()).fine(e.toString());
+        }
+    }
 }

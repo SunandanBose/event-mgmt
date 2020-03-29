@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BlogService {
@@ -71,5 +72,10 @@ public class BlogService {
             }
         }
         return response;
+    }
+
+    public void delete(Integer id) {
+        imageService.delete(id);
+        blogRepository.deleteById(id);
     }
 }

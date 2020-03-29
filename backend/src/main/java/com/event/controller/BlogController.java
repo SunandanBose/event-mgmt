@@ -48,4 +48,9 @@ public class BlogController {
         return blogService.fetchImage(fileName,request);
         //imageService.save(file);
     }
+
+    @RequestMapping(value = "/blogs/{id}", method = RequestMethod.DELETE)
+    private void deleteBlog(@PathVariable(value = "id") Integer id){
+        blogService.delete(id);
+    }
 }

@@ -12,3 +12,16 @@
     width: 450px;
     height: 300px;
 }
+
+.cross{
+    float: right;
+}
+.title{
+    float : left;
+    font-size: large;
+    font-weight: bold;
+}
+
+.body{
+    float : left;
+}
