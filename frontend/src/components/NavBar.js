@@ -32,7 +32,6 @@ class NavBar extends React.Component{
                         <li className="navbar-row"><NavBarElement to="/" text="Home" /></li>
                         <li className="navbar-row"><NavBarElement to="/notifications" text="Create Vlog" /></li>
                         <li className="navbar-row"><NavBarElement to="/events" text="My Vlog" /></li>
-                        <li className="navbar-row"><NavBarElement to="/event" text="Event Registration" /></li>
                     </ul>
                 </div>
             );
@@ -44,7 +43,6 @@ class NavBar extends React.Component{
                         <li className="navbar-row"><NavBarElement to="/" text="Home" /></li>
                         <li className="navbar-row"><NavBarElement to="/login" text="Create Vlog" /></li>
                         <li className="navbar-row"><NavBarElement to="/login" text="My Vlog" /></li>
-                        <li className="navbar-row"><NavBarElement to="/login" text="Event Registration" /></li>
                     </ul>
                 </div>
             );

@@ -3,6 +3,8 @@ import "../css/header.css"
 import {connect} from "react-redux";
 import UserInfoDropDown from "./child/UserInfoDropDown";
 import NavBarElement from "./child/NavBarElement";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCocktail } from '@fortawesome/free-solid-svg-icons'
 
 const mapStateToProps = (state) => {
 	return {
@@ -31,10 +33,10 @@ class Header extends React.Component {
 		return (
 			<div className="header-fixed">
 				<div className="heading">
-					<h1 className="inline">Vlog site</h1>
+					<h1 className="inline"><FontAwesomeIcon icon={ faCocktail }/> Unidiot 1.0</h1>
 					{
 						this.props.loggedInUser && 
-						<div className="authorization heading">
+						<div className="authorization">
 							Hi {this.props.loggedInUser.user.userName}
 							<UserInfoDropDown DropDownClass="dropDownContent" />
 						</div>

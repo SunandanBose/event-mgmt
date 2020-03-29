@@ -29,7 +29,7 @@ class BlogBox extends React.Component{
 			},
 
 		}).then(res => {
-				//this.props.history.push('/');
+				this.props.deleteBlog(this.props.id);
 			});
     }
 

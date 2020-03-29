@@ -18,6 +18,7 @@ class Blogs extends Component {
 			events: []
 		}
 		this.updateBlogs.bind(this);
+		this.deleteBlog = this.deleteBlog.bind(this);
 	}
 
 	componentDidMount() {
@@ -40,7 +41,11 @@ class Blogs extends Component {
 
 	updateBlogs(json){
 		this.setState({ events : json})
-		
+	}
+
+	deleteBlog(id){
+		const events = this.state.events.filter(x => x.id !== id);
+		this.setState({events});
 	}
 
 	render() {
@@ -48,7 +53,7 @@ class Blogs extends Component {
 			<div>
 				<h1>List of Blogs</h1>
 				{this.state.events.map((event) =>
-					<BlogBox id={event.id} title={event.title} body={event.body} {...this.props}/>
+					<BlogBox id={event.id} title={event.title} body={event.body} deleteBlog={this.deleteBlog} {...this.props}/>
 				)}
 
 
