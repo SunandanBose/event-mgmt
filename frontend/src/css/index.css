@@ -98,3 +98,33 @@ body {
     border-bottom: 1px solid;
 }
 
+.login.button {
+    background-color: #08b27f;
+    border: none;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    margin : 30px 30px ;
+}
+
+input[type=text], [type=password] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    resize: vertical;
+    max-width: 80%;
+}
+
+.login.container{
+    border-radius: 8px;
+    background-color: gray;
+    padding: 20px;
+    width: 450px;
+    box-shadow: 5px 10px 4px 1px #D0D0D0;
+}

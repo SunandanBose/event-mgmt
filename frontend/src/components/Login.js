@@ -4,6 +4,7 @@ import FormField from './child/FormField'
 import {currentUser} from "../actions";
 import {connect} from "react-redux";
 import {hostname} from "../constants/properties"
+import "../css/index.css"
 
 const mapDispatchToProps = dispatch => {
 	return {
@@ -58,13 +59,15 @@ class Login extends React.Component {
 
 	render() {
 		return (
-			<div className={(this.props.loggedInUser !== undefined) ? "hide" : ""}>
+			<div className={(this.props.loggedInUser !== undefined) ? "hide" : "login container"}>
 				<form onSubmit={this.register} method="POST">
 					<FormField elementName="userName" label="User Name :" placeholder="Enter User Name"
 							   handleChange={this.handleChange}/>
 					<FormField elementName="password" label="Password :" placeholder="Password"
 							   handleChange={this.handleChange} type={"password"}/>
-					<button type="submit">Login</button>
+					<div>
+						<button className="login button" type="submit">Login</button>
+					</div>
 				</form>
 			</div>
 		)

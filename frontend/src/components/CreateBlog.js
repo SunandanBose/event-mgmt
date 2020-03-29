@@ -7,6 +7,7 @@ import { Editor } from 'react-draft-wysiwyg';
 import {stateToHTML} from 'draft-js-export-html';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import {hostname} from "../constants/properties"
+import "../css/blog.css"
 				
 const mapStateToProps = (state) => {
 	return {token : state.currentUser.token}
@@ -40,13 +41,10 @@ class CreateBlog extends Component {
 		const formData = new FormData();
 		formData.append('file',this.state.pictures[0]);
 		formData.append('event', JSON.stringify(this.state.event));
-		//formData.append('event', JSON.stringify({"id":"5"}));
 		fetch('http://'+hostname+':8080/blogs', {
 			method: 'POST',
 			mode: "cors",
 			headers: {
-				//'Accept': 'form',
-				//'Content-Type': 'multipart/form-data',
 				'Bearer' : this.props.token
 			},
 			body: formData,
@@ -92,7 +90,7 @@ class CreateBlog extends Component {
 					maxFileSize={5242880}
 					withPreview={true}
             	/>
-				<button name="Submit" onClick={this.submitCreateBlog}>Submit</button>
+				<button name="Submit" className="blog button" onClick={this.submitCreateBlog}>Submit</button>
 			</div>
 		);
 	}
