@@ -1,10 +1,8 @@
 .navbar-fixed{
     float : left;
-    margin: 20px;
 }
 
 .navbar-row{
-    width: 200px;
     background-color: whitesmoke;
 }
 

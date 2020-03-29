@@ -6,7 +6,6 @@ import Blogs from "./Blogs";
 import Registration from "./Registration";
 import '../css/index.css'
 import Header from "./Header"
-import NavBar from "./NavBar";
 import CreateBlog from "./CreateBlog";
 import Blog from "./Blog";
 import Login from "./Login";
@@ -44,7 +43,7 @@ class Main extends Component {
 			<HashRouter>
 				<div>
 					<Header/>
-					<NavBar />
+				
 					<div>
 						<div className="content">
 							<Switch>
