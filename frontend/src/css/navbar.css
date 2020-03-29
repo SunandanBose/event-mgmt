@@ -3,17 +3,20 @@
 }
 
 .navbar-row{
-    background-color: whitesmoke;
+    background-color: white;
+    padding:  0 16px;
 }
 
 .active{
-    background-color: rgb(138, 171, 209);
     font-weight: bold; 
+    background-color: white;
 }
 
 .navbar-row:hover{
     background-color: darkgray;
     border-radius: 0px;
 }
+
+
 
 

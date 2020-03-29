@@ -68,3 +68,7 @@ li {
 .dropDownContent a:hover{
     background-color: lightgrey;
 }
+
+.logo{
+    float: left;
+}

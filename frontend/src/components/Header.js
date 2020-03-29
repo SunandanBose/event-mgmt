@@ -34,7 +34,9 @@ class Header extends React.Component {
 		return (
 			<div className="header-fixed">
 				<div className="heading">
-					<h1 className="inline"><FontAwesomeIcon icon={ faCocktail }/> Unidiot 1.0</h1>
+					<div className="logo">
+						<h1 className="inline"><FontAwesomeIcon icon={ faCocktail }/> Unidiot 1.0</h1>
+					</div>
 					<NavBar />
 					{
 						this.props.loggedInUser && 
