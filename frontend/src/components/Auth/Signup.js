@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FormField from '../child/FormField'
 import {hostname} from "../../constants/properties"
+import "../../css/index.css"
 
 export default class SignUp extends Component {
 
@@ -43,7 +44,7 @@ export default class SignUp extends Component {
 
     render() {
         return (
-            <div className={(this.props.loggedInUser !== undefined) ? "hide" : ""}>
+            <div className={(this.props.loggedInUser !== undefined) ? "hide" : "login container"}>
 				<form onSubmit={this.register} method="POST">
 					<FormField elementName="userName" label="Name :" placeholder="Enter Name"
 							   handleChange={this.handleChange}/>
@@ -51,7 +52,7 @@ export default class SignUp extends Component {
 							   handleChange={this.handleChange}/>
 					<FormField elementName="password" label="Password :" placeholder="Password"
 							   handleChange={this.handleChange} type={"password"}/>
-					<button type="submit">Register</button>
+					<button className="login button" type="submit">Register</button>
 				</form>
 			</div>
         );
