@@ -7,15 +7,13 @@
     padding:  0 16px;
 }
 
-.active{
-    font-weight: bold; 
-    background-color: white;
+.navbar-row:hover{
+    background-color: gray;
+    padding:  0 16px;
 }
 
-.navbar-row:hover{
-    background-color: darkgray;
-    border-radius: 0px;
-}
+
+
 
 
 
