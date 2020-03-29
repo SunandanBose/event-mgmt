@@ -47,8 +47,8 @@ class Header extends React.Component {
 					}
 
 					<ul className={this.state.userLoggedIn ? "hide authorization" : "authorization"}>
-						<li><NavBarElement to="/login" text="Login"/></li>
-						<li><NavBarElement to="/signup" text="Sign up"/></li>
+						<li className="header auth li"><NavBarElement  to="/login" text="Login"/></li>
+						<li className="header auth li"><NavBarElement className="header auth" to="/signup" text="Sign up"/></li>
 					</ul>
 				</div>
 			</div>)

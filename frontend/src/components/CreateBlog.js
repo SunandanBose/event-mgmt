@@ -73,8 +73,9 @@ class CreateBlog extends Component {
 
 	render() {
 		return (
-			<div>
-				<TextField row="2" column="60" id="title" handleChange={this.handleChange} label="Title"/>
+			<div className="blog create container">
+				<TextField row="2" column="177" id="title" 
+					handleChange={this.handleChange} label="Title"/>
 				<h2>Body</h2>
 				<Editor
 					editorState={this.state.editorState}

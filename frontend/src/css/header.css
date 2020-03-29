@@ -83,3 +83,12 @@ li {
     cursor: pointer;
     border-radius: 8px;
   }
+
+  .header.auth.li{
+    padding:  0 15px;
+  }
+
+  .header.auth.li:hover{
+    background-color: gray;
+    padding:  0 15px;
+}
