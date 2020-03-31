@@ -65,8 +65,9 @@ button {
 }
 
 .content {
-    width: 80%;
-    float: right
+    width: 95%;
+    /* float: right */
+    margin: auto;
 }
 
 .menu {
@@ -127,4 +128,9 @@ input[type=text], [type=password] {
     padding: 20px;
     width: 450px;
     box-shadow: 5px 10px 4px 1px #D0D0D0;
+}
+
+.welcome{
+    margin: 50px;
+    padding: 20px 150px;
 }

@@ -47,6 +47,7 @@
     padding: 20px;
     width: 1200px;
     box-shadow: 5px 10px 4px 1px #D0D0D0;
+    margin: auto;
   }
 
   .fileUploader{
@@ -58,7 +59,8 @@
   }
 
   .blogs.container{
-      max-width: 80%;
+      max-width: 85%;
+      margin: auto;
   }
 
 .blog.thumbnail{
