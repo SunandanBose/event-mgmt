@@ -12,11 +12,15 @@ class BlogBox extends React.Component{
 		super(props);
 		this.truncateString = this.truncateString.bind(this);
         this.deleteBlog = this.deleteBlog.bind(this);
+        this.fetchImage = this.fetchImage.bind(this);
 	}
 
     truncateString(){
-        let blog = this.props.body;
-        return {__html: blog.substring(0,80)};
+        let blog = this.props.title;
+        if(blog.length > 80)
+            return {__html: blog.substring(0,80)+". . ."};
+        return {__html: blog}
+        
     }
 
     deleteBlog(){
@@ -33,16 +37,20 @@ class BlogBox extends React.Component{
 			});
     }
 
+    fetchImage(blogid){
+        return'http://'+hostname+':8080/image/'+blogid;
+    }
+
     render(){
         return (
-            <div className="blog box">
-                <div>
-                    <div  className="title"> {this.props.title} </div>
-                    <div className="cross">
-                        <FontAwesomeIcon icon={ faTimesCircle } onClick={this.deleteBlog}/>
-                    </div>
+            <div className={"blog box"}>
+                <div className={"blog thumbnail"}>
+                    <img className={"blog image"} src={this.fetchImage(this.props.id)} alt="blog"/>
                 </div>
-                <div className="body" onClick={() => this.props.history.push({
+                <div className={"blog info"}>
+                    <div  className={"title"} 
+                    dangerouslySetInnerHTML={this.truncateString()}
+                    onClick={() => this.props.history.push({
                     pathname: '/blog',
                     event : {
                                 id : this.props.id,
@@ -51,8 +59,10 @@ class BlogBox extends React.Component{
                                 token : this.props.token
                             },     
 
-                    })}>
-                    <h4><div dangerouslySetInnerHTML={this.truncateString()} /></h4>
+                    })}></div>
+                    <div className="cross">
+                        <FontAwesomeIcon icon={ faTimesCircle } onClick={this.deleteBlog}/>
+                    </div>
                 </div>
             </div>
         )

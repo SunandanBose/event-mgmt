@@ -2,11 +2,12 @@
     border: 1px solid;
     padding: 10px;
     box-shadow: 5px 10px 8px #888888;
-    width: 150px;
-    height: 150px;
+    width: 450px;
+    height: 350px;
     margin: 20px;   
     float: left;
     cursor: pointer;
+    border-radius: 8px;
 }
 .image{
     width: 450px;
@@ -20,6 +21,7 @@
     float : left;
     font-size: large;
     font-weight: bold;
+    width: 80%;
 }
 
 .body{
@@ -54,3 +56,24 @@
   .fileContainer{
       background: #F8F8F8 !important;
   }
+
+  .blogs.container{
+      max-width: 80%;
+  }
+
+.blog.thumbnail{
+    width: 450px;
+    height: 250px;
+    border: 1px solid;
+    border-radius: 8px;
+}
+
+.blog.image{
+    width: 450px;
+    height: 250px;
+    border-radius: 8px;
+}
+
+.blog.info{
+    padding :10px;
+}

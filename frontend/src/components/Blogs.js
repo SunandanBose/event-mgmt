@@ -52,9 +52,11 @@ class Blogs extends Component {
 		return (
 			<div>
 				<h1>List of Blogs</h1>
+				<div className={"blogs container"}>
 				{this.state.events.map((event) =>
 					<BlogBox id={event.id} title={event.title} body={event.body} deleteBlog={this.deleteBlog} {...this.props}/>
 				)}
+				</div>
 
 
 			</div>
