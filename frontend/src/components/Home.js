@@ -6,8 +6,15 @@ class Home extends Component {
 		return (
 			<div className={"welcome"}>
 				<h2>TO DO</h2>
-				<p>Admin User can edit/modify the data from frontend</p>
-				<p>Delete a Post</p>
+				<ul>
+					<li> Delete a Post -- done</li>
+					<li> Edit A Blog</li>
+					<li> Tagging -- How does Tagging Work?</li>
+					<li> Search Bar - Simple(Author,TAG,Title)</li>
+					<li> Alert Box Generic Component</li>
+					<li> Show All Blog</li>
+				</ul>
+
 			</div>
 		);
 	}

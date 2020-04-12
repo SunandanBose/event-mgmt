@@ -38,9 +38,6 @@ ul {
 
 
 
-li {
-    float: left;
-}
 
 .authorization.heading{
     width: 100px;
@@ -84,8 +81,9 @@ li {
     border-radius: 8px;
   }
 
-  .header.auth.li{
+  .header.auth.row{
     padding:  0 15px;
+    float: left;
   }
 
   .header.auth.li:hover{

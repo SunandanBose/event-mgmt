@@ -31,16 +31,6 @@ public class EventService {
         User user = userRepository.findById(eventDto.getUserId()).get();
         return eventRepository.save(new Event(eventDto, user));
     }
-
-    public List<Event> fetchMyCreatedEvents(Integer userId) {
-        return eventRepository.findByCreatedBy(userRepository.findById(userId).get());
-    }
-
-    public List<Event> fetchOthersCreatedEvents(Integer userId) {
-        User user = userRepository.findById(userId).get();
-        return eventRepository.findByCreatedByNot(user);
-    }
-
     public void deleteEvent(Integer id) {
         Event event = eventRepository.findById(id).get();
         // Setting this to cancelled. Not deleting entity

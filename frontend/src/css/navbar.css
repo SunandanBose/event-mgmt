@@ -6,6 +6,7 @@
 .navbar-row{
     background-color: white;
     padding:  0 16px;
+    float: left;
 }
 
 .navbar-row:hover{

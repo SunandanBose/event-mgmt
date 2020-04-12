@@ -41,8 +41,4 @@ public class EventController {
         return eventService.updateEvent(id, evnt);
     }
 
-    @GetMapping(value = "/events/{id}/users")
-    public List<User> getListOfUsers(@PathVariable(value = "id") Integer id) {
-        return userEventService.getUsersOfParticularEvent(id);
-    }
 }

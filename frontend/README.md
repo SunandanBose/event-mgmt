@@ -20,21 +20,12 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 ## TODO:
 
 - Fixed Header implement
-    - User name --done
-    - Logout --done
-    - Prevent state on refresh(Low Scope)
-    - Drop down for user info --done
     - Photo (Low scope)
 
-- Nav Bar (Menu) --done
 - Admin login  
-- Failed login should show error message and not redirect
-- Create Blog  --done
-	- Clear page on submit
-- List of blogs (UI) --done
-- Delete Blog 
-- Page for a blog --done
+- unable to store emoticons or special characters 
     Blog bottom reaction (Low scope)
+- 
 
 
 
