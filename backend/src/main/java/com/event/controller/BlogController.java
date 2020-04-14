@@ -10,6 +10,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import com.event.model.Tag;
 import org.springframework.http.MediaType;
 
 import java.io.IOException;
@@ -52,5 +53,10 @@ public class BlogController {
     @RequestMapping(value = "/blogs/{id}", method = RequestMethod.DELETE)
     private void deleteBlog(@PathVariable(value = "id") Integer id){
         blogService.delete(id);
+    }
+
+    @GetMapping(value = "/tags")
+    private List<Tag> getTags(){
+        return blogService.getAllTags();
     }
 }

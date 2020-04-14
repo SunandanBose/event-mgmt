@@ -2,7 +2,9 @@ package com.event.service;
 
 import com.event.model.Blog;
 import com.event.model.EventWithFile;
+import com.event.model.Tag;
 import com.event.repository.BlogRepository;
+import com.event.repository.TagRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,6 +28,9 @@ public class BlogService {
 
     @Autowired
     private ImageService imageService;
+
+    @Autowired
+    private TagRepository tagRepository;
 
     public String createBlog(Blog blog){
         blogRepository.save(blog);
@@ -77,5 +83,10 @@ public class BlogService {
     public void delete(Integer id) {
         imageService.delete(id);
         blogRepository.deleteById(id);
+    }
+
+    public List<Tag> getAllTags() {
+        List<Tag> tagList = tagRepository.findAll();
+        return tagList;
     }
 }
