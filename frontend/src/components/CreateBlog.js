@@ -6,8 +6,9 @@ import ImageUploader from 'react-images-upload';
 import { Editor } from 'react-draft-wysiwyg';
 import {stateToHTML} from 'draft-js-export-html';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-import {hostname} from "../constants/properties"
-import "../css/blog.css"
+import {hostname} from "../constants/properties";
+import "../css/blog.css";
+import Tag from "./child/Tag";
 				
 const mapStateToProps = (state) => {
 	return {token : state.currentUser.token}
@@ -83,6 +84,7 @@ class CreateBlog extends Component {
 					wrapperClassName="demo-wrapper"
         			editorClassName="demo-editor"
 				/>
+				<Tag tags={[]} />
 				<ImageUploader
                 	withIcon={true}
                 	buttonText='Choose images'

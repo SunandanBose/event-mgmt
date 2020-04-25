@@ -28,7 +28,7 @@ li a {
 .formInput {
     box-sizing: border-box;
     padding: .5rem;
-    width: 30%;
+    width: 80%;
     display: block;
     border-color: rgba(0, 0, 0, .1);
     border-style: solid;
@@ -37,7 +37,7 @@ li a {
     line-height: 1.15;
     margin: 0 0 0 30px;
     outline: none;
-    border-radius: 7%;
+    border-radius: 7px;
 }
 
 button {
@@ -113,14 +113,6 @@ body {
     margin : 30px 30px ;
 }
 
-input[type=text], [type=password] {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    resize: vertical;
-    max-width: 80%;
-}
 
 .login.container{
     border-radius: 8px;
