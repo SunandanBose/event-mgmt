@@ -26,6 +26,7 @@ class CreateBlog extends Component {
 		this.handleChange = this.handleChange.bind(this);
 		this.submitCreateBlog = this.submitCreateBlog.bind(this);
 		this.onDrop = this.onDrop.bind(this);
+		this.selectedtags = this.selectedtags.bind(this);
 	}
 	handleChange(e) {
 		const target = e.target;
@@ -72,6 +73,10 @@ class CreateBlog extends Component {
 		});
 	};	
 
+	selectedtags(tags){
+		console.log(tags);
+
+	}
 	render() {
 		return (
 			<div className="blog create container">
@@ -84,7 +89,7 @@ class CreateBlog extends Component {
 					wrapperClassName="demo-wrapper"
         			editorClassName="demo-editor"
 				/>
-				<Tag tags={[]} />
+				<Tag tags={[]} selectedtags={this.selectedtags}/>
 				<ImageUploader
                 	withIcon={true}
                 	buttonText='Choose images'
