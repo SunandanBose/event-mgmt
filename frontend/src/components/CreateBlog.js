@@ -75,7 +75,10 @@ class CreateBlog extends Component {
 
 	selectedtags(tags){
 		console.log(tags);
-
+		let event = {...this.state.event};
+		event["tags"] = tags;
+		console.log(event);
+		this.setState({event});
 	}
 	render() {
 		return (

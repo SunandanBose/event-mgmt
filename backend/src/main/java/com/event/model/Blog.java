@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Blog {
@@ -18,6 +19,9 @@ public class Blog {
 
     @Column(columnDefinition = "MEDIUMTEXT")
     private String body;
+
+    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    private List<Tag> tags;
 
     private Date createdTime;
 
@@ -51,6 +55,14 @@ public class Blog {
 
     public void setCreatedTime(Date createdTime) {
         this.createdTime = createdTime;
+    }
+
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
     }
 
     @PrePersist
