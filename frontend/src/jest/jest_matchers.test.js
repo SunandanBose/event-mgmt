@@ -50,3 +50,8 @@ test('to check if array has a value use contains', () => {
 	expect([1,2,3,4]).toContain(4);
 	expect([1,2,3,4]).not.toContain(5);
 })
+
+// You don't need to call the function
+test('to test exceptions use toThrow', () => {
+	expect((() => { throw new Error('Exception') })).toThrow();
+})
