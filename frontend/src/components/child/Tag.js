@@ -20,7 +20,7 @@ const Tag = props => {
 				{tags.map((tag, index) => (
 					<li key={index} className="tag">
 						<span className='tag-title'>{tag}</span>
-						<span className='tag-close-icon'
+						<span className={(props.hide !== undefined) ? 'hide' : 'tag-close-icon'}
 							onClick={() => removeTags(index)}
 						>
 							x
@@ -29,7 +29,7 @@ const Tag = props => {
 				))}
 			</ul>
 			<input
-				type="text" className="tag-input-field"
+				type="text" className={(props.hide !== undefined) ? "hide" : "tag-input-field" }
 				onKeyUp={event => event.key === "Enter" ? addTags(event) : null}
 				placeholder="Press enter to add tags"
 			/>

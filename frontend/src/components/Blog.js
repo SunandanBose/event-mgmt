@@ -1,6 +1,7 @@
 import React from "react";
 import {hostname} from "../constants/properties";
 import "../css/blog.css"
+import Tag from "./child/Tag";
 
 export default class Blog extends React.Component{
     constructor(props){
@@ -26,6 +27,7 @@ export default class Blog extends React.Component{
         return(
             <div>
                 <h1>{this.props.location.event.title}</h1>
+                <Tag tags={this.props.location.event.tags} hide={"hide"} />
                 <div dangerouslySetInnerHTML={this.getBody()} />
                 <img className="image" src={this.state.picture} alt="blog"/>
             </div>

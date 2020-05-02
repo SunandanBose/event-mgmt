@@ -56,6 +56,7 @@ class BlogBox extends React.Component{
                                 id : this.props.id,
                                 title : this.props.title,
                                 body : this.props.body,
+                                tags : this.props.tags,
                                 token : this.props.token
                             },     
 
