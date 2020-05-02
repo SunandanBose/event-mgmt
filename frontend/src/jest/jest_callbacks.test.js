@@ -1,33 +1,26 @@
 function fetchData(callback){
 	const data = 'Asynchronous tests suck';
-	return callback(data);
+	setTimeout(() => callback(data), 1000);
 }
-
-// function fetchData(callback){
-// 	const data = 'Asynchronous tests suck';
-// 	return setTimeout(500, () => callback(data));
-// }
 
 test('My first test with a callback', (done) => {	
 	function callback(data) {
 	    try {
-	      expect(data).toBe('Asynchronous tests suck');
-	      done();
+	    	console.log(data);
+	        expect(data).toBe('Asynchronous tests suck');
+	        done();
 	    } catch (error) {
-	      done(error);
+	        done(error);
 	    }
   	}
 
 	fetchData(callback);
 });
 
-test.skip('This is a failing test as the test cannot run because of callback. See above for how to do it', () => {	
-	function callback(data) {
-	    try {
-	      expect(data).toBe('Asynchronous tests suck');
-	    } catch (error) {
-	      console.log(error);
-	    }
+test('This is a bad test as the test cannot run the callback before exiting. See above for how to do it', () => {	
+	function callback(data) {    
+	    console.log(data);
+	    expect(data).toBe('Asynchronous tests suck');
   	}
 
 	fetchData(callback);
