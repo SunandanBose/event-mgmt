@@ -1,17 +1,21 @@
 import React, {Component} from "react";
-import '../css/index.css'
+import '../css/index.css';
+import Popup from "./child/Popup";
 
 class Home extends Component {
+
+
 	render() {
 		return (
 			<div className={"welcome"}>
+				<Popup />
 				<h2>TO DO</h2>
 				<ul>
 					<li> Delete a Post -- done</li>
 					<li> Edit A Blog</li>
-					<li> Tagging -- How does Tagging Work?</li>
+					<li> Tagging -- How does Tagging Work?  -- done</li>
 					<li> Search Bar - Simple(Author,TAG,Title)</li>
-					<li> Alert Box Generic Component</li>
+					<li> Alert Box Generic Component -- done</li>
 					<li> Show All Blog</li>
 				</ul>
 
