@@ -43,7 +43,7 @@ public class BlogService {
     }
 
     public String create(EventWithFile eventWithFile) {
-        Blog blog = blogRepository.save(eventWithFile.getBlog());
+        Blog blog = saveBlog(eventWithFile.getBlog());
         if(eventWithFile.getFile()!=null) {
             String originalFileName = eventWithFile.getFile().getOriginalFilename();
             String newFileName = (String.valueOf(blog.getId()) + originalFileName.substring(originalFileName.length() - 4, originalFileName.length()));
@@ -88,5 +88,23 @@ public class BlogService {
     public List<Tag> getAllTags() {
         List<Tag> tagList = tagRepository.findAll();
         return tagList;
+    }
+
+    private Blog saveBlog(Blog blog) {
+        List<Tag> allTags = blog.getTags();
+        List<Tag> newTags = new ArrayList<>();
+        List<Tag> oldTags = new ArrayList<>();
+        if(allTags != null) {
+            for (Tag tag : allTags) {
+                if (tagRepository.findByName(tag.getName()).isPresent())
+                    oldTags.add(tagRepository.findByName(tag.getName()).get());
+                else
+                    newTags.add(tag);
+            }
+            blog.setTags(newTags);
+        }
+        Blog tempBlog = blogRepository.save(blog);
+        tempBlog.getTags().addAll(oldTags);
+        return blogRepository.save(tempBlog);
     }
 }

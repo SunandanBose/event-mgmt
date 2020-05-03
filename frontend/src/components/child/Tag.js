@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import '../../css/tag.css'
 
 const Tag = props => {
@@ -23,7 +25,7 @@ const Tag = props => {
 						<span className={(props.hide !== undefined) ? 'hide' : 'tag-close-icon'}
 							onClick={() => removeTags(index)}
 						>
-							x
+							<FontAwesomeIcon icon={ faTimesCircle }/>
 						</span>
 					</li>
 				))}

@@ -20,7 +20,7 @@ public class Blog {
     @Column(columnDefinition = "MEDIUMTEXT")
     private String body;
 
-    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = {CascadeType.PERSIST})
     private List<Tag> tags;
 
     private Date createdTime;
