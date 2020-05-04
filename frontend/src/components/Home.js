@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import '../css/index.css';
-import Popup from "./child/Popup";
 
 class Home extends Component {
 
@@ -8,7 +7,6 @@ class Home extends Component {
 	render() {
 		return (
 			<div className={"welcome"}>
-				<Popup />
 				<h2>TO DO</h2>
 				<ul>
 					<li> Delete a Post -- done</li>
