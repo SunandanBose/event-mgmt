@@ -66,3 +66,17 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+Reusable component library for frontend components
+Cart - component
+Login - Google/Facebook
+Deployable packages
+
+ELK stack 
+Uploading and saving images
+Video streaming onlinr
+Chat box
+Payment
+
+Notification - Email/SMS
+
