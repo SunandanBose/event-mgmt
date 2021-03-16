@@ -1,10 +1,12 @@
 package com.event.service;
 
+import com.event.controller.BlogController;
 import com.event.model.Blog;
 import com.event.model.EventWithFile;
 import com.event.model.Tag;
 import com.event.repository.BlogRepository;
 import com.event.repository.TagRepository;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -18,6 +20,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Service
 public class BlogService {
@@ -32,14 +36,24 @@ public class BlogService {
     @Autowired
     private TagRepository tagRepository;
 
+    static Logger logger = LoggerFactory.getLogger(BlogService.class.getName());
+
     public String createBlog(Blog blog){
         blogRepository.save(blog);
         return "Created Successfully!!!";
     }
 
-    public List<Blog> getBlogs() {
-
+    public List<Blog> getBlogs(String postmanToken) {
+//        logger.info("In BlogService getBlogs"+postmanToken);
         return blogRepository.findAll();
+    }
+
+    public Blog getBlog(Integer blogId) {
+
+        if(blogRepository.findById(blogId).isPresent()){
+            return blogRepository.findById(blogId).get();
+        }
+        return new Blog();
     }
 
     public String create(EventWithFile eventWithFile) {

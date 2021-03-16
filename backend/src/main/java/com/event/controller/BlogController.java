@@ -15,6 +15,9 @@ import org.springframework.http.MediaType;
 
 import java.io.IOException;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -29,6 +32,8 @@ public class BlogController {
     @Autowired
     private ImageService imageService;
 
+    static Logger logger = LoggerFactory.getLogger(BlogController.class);
+
     @PostMapping(value = "/blogs")
     private String createNewBlog(@RequestParam("event") String model, @RequestParam(value = "file", required = false) MultipartFile file) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
@@ -39,8 +44,14 @@ public class BlogController {
     //TODO : Donot return objects return response Entity
     @GetMapping(value = "/blogs")
     private List<Blog> getBlogs(){
+//        logger.info("fetch all blogs"+postmanToken);
+        String postmanToken = "partho";
+        return blogService.getBlogs(postmanToken);
+    }
 
-        return blogService.getBlogs();
+    @GetMapping(value = "/blogs/{id}")
+    private Blog getBlogs(@PathVariable(value = "id") Integer blogId){
+        return blogService.getBlog(blogId);
     }
 
     @GetMapping(value = "/image/{id}")
