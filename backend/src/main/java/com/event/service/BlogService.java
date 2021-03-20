@@ -1,6 +1,5 @@
 package com.event.service;
 
-import com.event.controller.BlogController;
 import com.event.model.Blog;
 import com.event.model.EventWithFile;
 import com.event.model.Tag;
@@ -19,9 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 @Service
 public class BlogService {
@@ -43,8 +40,7 @@ public class BlogService {
         return "Created Successfully!!!";
     }
 
-    public List<Blog> getBlogs(String postmanToken) {
-//        logger.info("In BlogService getBlogs"+postmanToken);
+    public List<Blog> getBlogs() {
         return blogRepository.findAll();
     }
 

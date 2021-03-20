@@ -11,15 +11,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import com.event.model.Tag;
-import org.springframework.http.MediaType;
 
 import java.io.IOException;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -44,9 +40,7 @@ public class BlogController {
     //TODO : Donot return objects return response Entity
     @GetMapping(value = "/blogs")
     private List<Blog> getBlogs(){
-//        logger.info("fetch all blogs"+postmanToken);
-        String postmanToken = "partho";
-        return blogService.getBlogs(postmanToken);
+        return blogService.getBlogs();
     }
 
     @GetMapping(value = "/blogs/{id}")
@@ -58,7 +52,6 @@ public class BlogController {
     private ResponseEntity<Resource> uploadImage(@PathVariable(value = "id") Integer blogId, HttpServletRequest request){
         String fileName = String.valueOf(blogId);
         return blogService.fetchImage(fileName,request);
-        //imageService.save(file);
     }
 
     @RequestMapping(value = "/blogs/{id}", method = RequestMethod.DELETE)
